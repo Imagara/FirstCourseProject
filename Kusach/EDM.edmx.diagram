@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dabec44b8a634331ae1f79524a76b8ac" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="gr692_gavModel.Dispatcher" Width="1.5" PointX="4.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Drivers" Width="1.5" PointX="7.875" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.DriversList" Width="1.5" PointX="7.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Points" Width="1.5" PointX="7.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.PointsList" Width="1.5" PointX="4.375" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.RouteList" Width="1.5" PointX="1.125" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Routes" Width="1.5" PointX="1.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Transport" Width="1.5" PointX="4.375" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="gr692_gavModel.FK__RouteList__IdRou__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__DriversLi__IdDri__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK_Drivers_Transport" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__DriversLi__IdRou__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__PointsLis__IdPoi__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__PointsLis__IdRou__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__RouteList__IdRou__628FA481" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,233 @@
+﻿<Window x:Class="Kusach.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kusach"
+        mc:Ignorable="d"
+        Loaded="UserDateView"
+        Title="Взаимодействие с информацией" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            x:Name="BackButton" 
+            Content="Выход" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Click="BackButton_Click"/>
+        <TabControl
+            Name="TabContrl"
+            Grid.Row="2">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="90">
+                            <Run Text="Управление"/>
+                            <LineBreak/>
+                            <Run Text="пользователями"/>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBox 
+                            Name="UserSearch" 
+                            HorizontalAlignment="Left" 
+                            TextWrapping="Wrap" 
+                            Text="Поиск..."
+                            Width="94"
+                            Foreground="#808080"
+                            VerticalAlignment="Top" TextChanged="UserSearch_TextChanged"/>
+                        <Button 
+                            Content="Добавить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="AddUserButton_Click"/>
+                        <Button 
+                            Content="Изменить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="UpdateUserButton_Click"/>
+                        <Button 
+                            Content="Обновить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="UserDateView"/>
+                        <Button 
+                            Content="Удалить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="DeleteUserButton_Click"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="90">
+                            <Run Text="Управление"/>
+                            <LineBreak/>
+                            <Run Text="маршрутами"/>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <Button 
+                            Content="Поиск" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="FindRouteButton_Click"/>
+                        <Button
+                            Content="Добавить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="AddRouteButton_Click"/>
+                        <Button 
+                            Content="Обновить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="RoutesDateView"/>
+                        <Button 
+                            Content="Удалить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="90">
+                            <Run Text="Управление"/>
+                            <LineBreak/>
+                            <Run Text="точками"/>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <Button 
+                            Content="Поиск" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="FindRouteButton_Click"/>
+                        <Button 
+                            Content="Добавить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="AddPointButton_Click"/>
+                        <Button 
+                            Content="Обновить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="PointDateView"/>
+                        <Button 
+                            Content="Удалить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="90">
+                            <Run Text="Управление"/>
+                            <LineBreak/>
+                            <Run Text="водителями"/>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <Button 
+                            Content="Поиск" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="FindRouteButton_Click"/>
+                        <Button 
+                            Content="Добавить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="AddDriverButton_Click"/>
+                        <Button 
+                            Content="Обновить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="DriversDateView"/>
+                        <Button 
+                            Content="Удалить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="90">
+                            <Run Text="Управление"/>
+                            <LineBreak/>
+                            <Run Text="транспортом"/>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <Button 
+                            Content="Поиск" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="FindRouteButton_Click"/>
+                        <Button 
+                            Content="Добавить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="AddTransportButton_Click"/>
+                        <Button 
+                            Content="Обновить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"
+                            Click="TransportDateView"/>
+                        <Button 
+                            Content="Удалить" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Top" 
+                            Height="20"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <DataGrid
+            x:Name="DataGrid"
+            Grid.Column="1"
+            Grid.RowSpan="2"/>
+    </Grid>
+</Window>

@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gr692_gavModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="gr692_gavModelStoreContainer">
+    <EntitySet Name="Dispatcher" EntityType="gr692_gavModel.Store.Dispatcher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="gr692_gavModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DriversList" EntityType="gr692_gavModel.Store.DriversList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Points" EntityType="gr692_gavModel.Store.Points" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PointsList" EntityType="gr692_gavModel.Store.PointsList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RouteList" EntityType="gr692_gavModel.Store.RouteList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Routes" EntityType="gr692_gavModel.Store.Routes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transport" EntityType="gr692_gavModel.Store.Transport" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__RouteList__IdRou__6383C8BA" Association="gr692_gavModel.Store.FK__RouteList__IdRou__6383C8BA">
+      <End Role="Dispatcher" EntitySet="Dispatcher" />
+      <End Role="RouteList" EntitySet="RouteList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DriversLi__IdDri__0C85DE4D" Association="gr692_gavModel.Store.FK__DriversLi__IdDri__0C85DE4D">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="DriversList" EntitySet="DriversList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Drivers_Transport" Association="gr692_gavModel.Store.FK_Drivers_Transport">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="Drivers" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DriversLi__IdRou__68487DD7" Association="gr692_gavModel.Store.FK__DriversLi__IdRou__68487DD7">
+      <End Role="Routes" EntitySet="Routes" />
+      <End Role="DriversList" EntitySet="DriversList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PointsLis__IdPoi__6477ECF3" Association="gr692_gavModel.Store.FK__PointsLis__IdPoi__6477ECF3">
+      <End Role="Points" EntitySet="Points" />
+      <End Role="PointsList" EntitySet="PointsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PointsLis__IdRou__66603565" Association="gr692_gavModel.Store.FK__PointsLis__IdRou__66603565">
+      <End Role="Routes" EntitySet="Routes" />
+      <End Role="PointsList" EntitySet="PointsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RouteList__IdRou__628FA481" Association="gr692_gavModel.Store.FK__RouteList__IdRou__628FA481">
+      <End Role="Routes" EntitySet="Routes" />
+      <End Role="RouteList" EntitySet="RouteList" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Dispatcher">
+    <Key>
+      <PropertyRef Name="IdDispatcher" />
+    </Key>
+    <Property Name="IdDispatcher" Type="int" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="IdDriver" />
+    </Key>
+    <Property Name="IdDriver" Type="int" Nullable="false" />
+    <Property Name="IdTransport" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Patronymic" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DriversList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdDriver" Type="int" Nullable="false" />
+    <Property Name="IdRoute" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Points">
+    <Key>
+      <PropertyRef Name="IdPoint" />
+    </Key>
+    <Property Name="IdPoint" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="location" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="PointsList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdPoint" Type="int" Nullable="false" />
+    <Property Name="IdRoute" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RouteList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdRoute" Type="int" Nullable="false" />
+    <Property Name="IdDispatcher" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="IdRoute" />
+    </Key>
+    <Property Name="IdRoute" Type="int" Nullable="false" />
+    <Property Name="IdDriver" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="IdTransport" />
+    </Key>
+    <Property Name="IdTransport" Type="int" Nullable="false" />
+    <Property Name="NameOfTransport" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumberPlate" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__RouteList__IdRou__6383C8BA">
+    <End Role="Dispatcher" Type="gr692_gavModel.Store.Dispatcher" Multiplicity="1" />
+    <End Role="RouteList" Type="gr692_gavModel.Store.RouteList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispatcher">
+        <PropertyRef Name="IdDispatcher" />
+      </Principal>
+      <Dependent Role="RouteList">
+        <PropertyRef Name="IdRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DriversLi__IdDri__0C85DE4D">
+    <End Role="Drivers" Type="gr692_gavModel.Store.Drivers" Multiplicity="1" />
+    <End Role="DriversList" Type="gr692_gavModel.Store.DriversList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="IdDriver" />
+      </Principal>
+      <Dependent Role="DriversList">
+        <PropertyRef Name="IdDriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Drivers_Transport">
+    <End Role="Transport" Type="gr692_gavModel.Store.Transport" Multiplicity="1" />
+    <End Role="Drivers" Type="gr692_gavModel.Store.Drivers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="IdTransport" />
+      </Principal>
+      <Dependent Role="Drivers">
+        <PropertyRef Name="IdTransport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DriversLi__IdRou__68487DD7">
+    <End Role="Routes" Type="gr692_gavModel.Store.Routes" Multiplicity="1" />
+    <End Role="DriversList" Type="gr692_gavModel.Store.DriversList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes">
+        <PropertyRef Name="IdRoute" />
+      </Principal>
+      <Dependent Role="DriversList">
+        <PropertyRef Name="IdRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PointsLis__IdPoi__6477ECF3">
+    <End Role="Points" Type="gr692_gavModel.Store.Points" Multiplicity="1" />
+    <End Role="PointsList" Type="gr692_gavModel.Store.PointsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Points">
+        <PropertyRef Name="IdPoint" />
+      </Principal>
+      <Dependent Role="PointsList">
+        <PropertyRef Name="IdPoint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PointsLis__IdRou__66603565">
+    <End Role="Routes" Type="gr692_gavModel.Store.Routes" Multiplicity="1" />
+    <End Role="PointsList" Type="gr692_gavModel.Store.PointsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes">
+        <PropertyRef Name="IdRoute" />
+      </Principal>
+      <Dependent Role="PointsList">
+        <PropertyRef Name="IdRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RouteList__IdRou__628FA481">
+    <End Role="Routes" Type="gr692_gavModel.Store.Routes" Multiplicity="1" />
+    <End Role="RouteList" Type="gr692_gavModel.Store.RouteList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes">
+        <PropertyRef Name="IdRoute" />
+      </Principal>
+      <Dependent Role="RouteList">
+        <PropertyRef Name="IdRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gr692_gavModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dispatcher">
+          <Key>
+            <PropertyRef Name="IdDispatcher" />
+          </Key>
+          <Property Name="IdDispatcher" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RouteList" Relationship="Self.FK__RouteList__IdRou__6383C8BA" FromRole="Dispatcher" ToRole="RouteList" />
+        </EntityType>
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="IdDriver" />
+          </Key>
+          <Property Name="IdDriver" Type="Int32" Nullable="false" />
+          <Property Name="IdTransport" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DriversList" Relationship="Self.FK__DriversLi__IdDri__0C85DE4D" FromRole="Drivers" ToRole="DriversList" />
+          <NavigationProperty Name="Transport" Relationship="Self.FK_Drivers_Transport" FromRole="Drivers" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="DriversList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdDriver" Type="Int32" Nullable="false" />
+          <Property Name="IdRoute" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Drivers" Relationship="Self.FK__DriversLi__IdDri__0C85DE4D" FromRole="DriversList" ToRole="Drivers" />
+          <NavigationProperty Name="Routes" Relationship="Self.FK__DriversLi__IdRou__68487DD7" FromRole="DriversList" ToRole="Routes" />
+        </EntityType>
+        <EntityType Name="Points">
+          <Key>
+            <PropertyRef Name="IdPoint" />
+          </Key>
+          <Property Name="IdPoint" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PointsList" Relationship="Self.FK__PointsLis__IdPoi__6477ECF3" FromRole="Points" ToRole="PointsList" />
+        </EntityType>
+        <EntityType Name="PointsList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdPoint" Type="Int32" Nullable="false" />
+          <Property Name="IdRoute" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Points" Relationship="Self.FK__PointsLis__IdPoi__6477ECF3" FromRole="PointsList" ToRole="Points" />
+          <NavigationProperty Name="Routes" Relationship="Self.FK__PointsLis__IdRou__66603565" FromRole="PointsList" ToRole="Routes" />
+        </EntityType>
+        <EntityType Name="RouteList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdRoute" Type="Int32" Nullable="false" />
+          <Property Name="IdDispatcher" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dispatcher" Relationship="Self.FK__RouteList__IdRou__6383C8BA" FromRole="RouteList" ToRole="Dispatcher" />
+          <NavigationProperty Name="Routes" Relationship="Self.FK__RouteList__IdRou__628FA481" FromRole="RouteList" ToRole="Routes" />
+        </EntityType>
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="IdRoute" />
+          </Key>
+          <Property Name="IdRoute" Type="Int32" Nullable="false" />
+          <Property Name="IdDriver" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DriversList" Relationship="Self.FK__DriversLi__IdRou__68487DD7" FromRole="Routes" ToRole="DriversList" />
+          <NavigationProperty Name="PointsList" Relationship="Self.FK__PointsLis__IdRou__66603565" FromRole="Routes" ToRole="PointsList" />
+          <NavigationProperty Name="RouteList" Relationship="Self.FK__RouteList__IdRou__628FA481" FromRole="Routes" ToRole="RouteList" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="IdTransport" />
+          </Key>
+          <Property Name="IdTransport" Type="Int32" Nullable="false" />
+          <Property Name="NameOfTransport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberPlate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Drivers" Relationship="Self.FK_Drivers_Transport" FromRole="Transport" ToRole="Drivers" />
+        </EntityType>
+        <Association Name="FK__RouteList__IdRou__6383C8BA">
+          <End Role="Dispatcher" Type="Self.Dispatcher" Multiplicity="1" />
+          <End Role="RouteList" Type="Self.RouteList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatcher">
+              <PropertyRef Name="IdDispatcher" />
+            </Principal>
+            <Dependent Role="RouteList">
+              <PropertyRef Name="IdRoute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DriversLi__IdDri__0C85DE4D">
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="1" />
+          <End Role="DriversList" Type="Self.DriversList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drivers">
+              <PropertyRef Name="IdDriver" />
+            </Principal>
+            <Dependent Role="DriversList">
+              <PropertyRef Name="IdDriver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Drivers_Transport">
+          <End Role="Transport" Type="Self.Transport" Multiplicity="1" />
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="IdTransport" />
+            </Principal>
+            <Dependent Role="Drivers">
+              <PropertyRef Name="IdTransport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DriversLi__IdRou__68487DD7">
+          <End Role="Routes" Type="Self.Routes" Multiplicity="1" />
+          <End Role="DriversList" Type="Self.DriversList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="IdRoute" />
+            </Principal>
+            <Dependent Role="DriversList">
+              <PropertyRef Name="IdRoute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PointsLis__IdPoi__6477ECF3">
+          <End Role="Points" Type="Self.Points" Multiplicity="1" />
+          <End Role="PointsList" Type="Self.PointsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Points">
+              <PropertyRef Name="IdPoint" />
+            </Principal>
+            <Dependent Role="PointsList">
+              <PropertyRef Name="IdPoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PointsLis__IdRou__66603565">
+          <End Role="Routes" Type="Self.Routes" Multiplicity="1" />
+          <End Role="PointsList" Type="Self.PointsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="IdRoute" />
+            </Principal>
+            <Dependent Role="PointsList">
+              <PropertyRef Name="IdRoute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RouteList__IdRou__628FA481">
+          <End Role="Routes" Type="Self.Routes" Multiplicity="1" />
+          <End Role="RouteList" Type="Self.RouteList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="IdRoute" />
+            </Principal>
+            <Dependent Role="RouteList">
+              <PropertyRef Name="IdRoute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EDM" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dispatcher" EntityType="Self.Dispatcher" />
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" />
+          <EntitySet Name="DriversList" EntityType="Self.DriversList" />
+          <EntitySet Name="Points" EntityType="Self.Points" />
+          <EntitySet Name="PointsList" EntityType="Self.PointsList" />
+          <EntitySet Name="RouteList" EntityType="Self.RouteList" />
+          <EntitySet Name="Routes" EntityType="Self.Routes" />
+          <EntitySet Name="Transport" EntityType="Self.Transport" />
+          <AssociationSet Name="FK__RouteList__IdRou__6383C8BA" Association="Self.FK__RouteList__IdRou__6383C8BA">
+            <End Role="Dispatcher" EntitySet="Dispatcher" />
+            <End Role="RouteList" EntitySet="RouteList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DriversLi__IdDri__0C85DE4D" Association="Self.FK__DriversLi__IdDri__0C85DE4D">
+            <End Role="Drivers" EntitySet="Drivers" />
+            <End Role="DriversList" EntitySet="DriversList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Drivers_Transport" Association="Self.FK_Drivers_Transport">
+            <End Role="Transport" EntitySet="Transport" />
+            <End Role="Drivers" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DriversLi__IdRou__68487DD7" Association="Self.FK__DriversLi__IdRou__68487DD7">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="DriversList" EntitySet="DriversList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PointsLis__IdPoi__6477ECF3" Association="Self.FK__PointsLis__IdPoi__6477ECF3">
+            <End Role="Points" EntitySet="Points" />
+            <End Role="PointsList" EntitySet="PointsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PointsLis__IdRou__66603565" Association="Self.FK__PointsLis__IdRou__66603565">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="PointsList" EntitySet="PointsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RouteList__IdRou__628FA481" Association="Self.FK__RouteList__IdRou__628FA481">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="RouteList" EntitySet="RouteList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gr692_gavModelStoreContainer" CdmEntityContainer="EDM">
+    <EntitySetMapping Name="Dispatcher">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.Dispatcher)">
+        <MappingFragment StoreEntitySet="Dispatcher">
+          <ScalarProperty Name="IdDispatcher" ColumnName="IdDispatcher" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.Drivers)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="IdDriver" ColumnName="IdDriver" />
+          <ScalarProperty Name="IdTransport" ColumnName="IdTransport" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriversList">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.DriversList)">
+        <MappingFragment StoreEntitySet="DriversList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdDriver" ColumnName="IdDriver" />
+          <ScalarProperty Name="IdRoute" ColumnName="IdRoute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.Points)">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="IdPoint" ColumnName="IdPoint" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointsList">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.PointsList)">
+        <MappingFragment StoreEntitySet="PointsList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPoint" ColumnName="IdPoint" />
+          <ScalarProperty Name="IdRoute" ColumnName="IdRoute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteList">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.RouteList)">
+        <MappingFragment StoreEntitySet="RouteList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdRoute" ColumnName="IdRoute" />
+          <ScalarProperty Name="IdDispatcher" ColumnName="IdDispatcher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.Routes)">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="IdRoute" ColumnName="IdRoute" />
+          <ScalarProperty Name="IdDriver" ColumnName="IdDriver" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport">
+      <EntityTypeMapping TypeName="IsTypeOf(gr692_gavModel.Transport)">
+        <MappingFragment StoreEntitySet="Transport">
+          <ScalarProperty Name="IdTransport" ColumnName="IdTransport" />
+          <ScalarProperty Name="NameOfTransport" ColumnName="NameOfTransport" />
+          <ScalarProperty Name="NumberPlate" ColumnName="NumberPlate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

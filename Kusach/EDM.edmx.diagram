@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="dabec44b8a634331ae1f79524a76b8ac" Name="Diagram1" ZoomLevel="94">
-        <EntityTypeShape EntityType="gr692_gavModel.Dispatcher" Width="1.5" PointX="4.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Dispatcher" Width="1.5" PointX="4.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="gr692_gavModel.Drivers" Width="1.5" PointX="7.875" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="gr692_gavModel.DriversList" Width="1.5" PointX="7.875" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="gr692_gavModel.Points" Width="1.5" PointX="7.25" PointY="2.125" IsExpanded="true" />

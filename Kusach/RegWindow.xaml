@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:Kusach"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Окно регистрации" Height="350" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Окно регистрации" Height="730" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label 
             Content="Логин:" 
             HorizontalAlignment="Left" 
-            Margin="180,45,0,0" 
+            Margin="143,35,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
         <TextBox 
             x:Name="logbox" 
             HorizontalAlignment="Left" 
-            Margin="179,85,0,0" 
+            Margin="142,75,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Height="40" 
@@ -26,14 +26,14 @@
         <Label 
             Content="Пароль:" 
             HorizontalAlignment="Left" 
-            Margin="180,125,0,0"
+            Margin="143,115,0,0"
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
         <TextBox 
             x:Name="passbox" 
             HorizontalAlignment="Left" 
-            Margin="179,165,0,0" 
+            Margin="142,155,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
@@ -41,7 +41,7 @@
             x:Name="RegButton" 
             Content="Регистрация" 
             HorizontalAlignment="Left"
-            Margin="317,238,0,0" 
+            Margin="298,651,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="150" 
@@ -50,10 +50,81 @@
             x:Name="BackButton" 
             Content="Назад" 
             HorizontalAlignment="Left" 
-            Margin="140,238,0,0" 
+            Margin="121,651,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="150" 
             Click="BackButton_Click"/>
+        <Label 
+            Content="Имя:" 
+            HorizontalAlignment="Left" 
+            Margin="143,195,0,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <TextBox 
+            x:Name="FNameBox" 
+            HorizontalAlignment="Left" 
+            Margin="142,235,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <Label 
+            Content="Фамилия:" 
+            HorizontalAlignment="Left" 
+            Margin="143,275,0,0"
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <TextBox 
+            x:Name="LNameBox" 
+            HorizontalAlignment="Left" 
+            Margin="142,315,0,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <Label 
+            Content="Отчество:" 
+            HorizontalAlignment="Left" 
+            Margin="143,356,0,0"
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <TextBox 
+            x:Name="MNameBox" 
+            HorizontalAlignment="Left" 
+            Margin="142,396,0,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <Label 
+            Content="День рождения:" 
+            HorizontalAlignment="Left" 
+            Margin="144,436,0,0"
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <TextBox 
+            x:Name="BirthdayBox" 
+            HorizontalAlignment="Left" 
+            Margin="143,476,0,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <Label 
+            Content="Телефон:" 
+            HorizontalAlignment="Left" 
+            Margin="143,516,0,0"
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
+        <TextBox 
+            x:Name="PhoneBox" 
+            HorizontalAlignment="Left" 
+            Margin="142,556,0,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Width="240"/>
     </Grid>
 </Window>

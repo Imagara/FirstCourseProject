@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 
 namespace Kusach
@@ -18,16 +19,23 @@ namespace Kusach
         }
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            if (logbox.Text == "" || passbox.Password == "")
-                MessageBox.Show("Поля не могут быть пустыми.");
-            else if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(logbox.Text + Encrypt.GetHash(passbox.Password)))
+            try 
             {
-                DataWindow dw = new DataWindow();
-                dw.Show();
-                this.Close();
+                if (logbox.Text == "" || passbox.Password == "")
+                    MessageBox.Show("Поля не могут быть пустыми.");
+                else if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(logbox.Text + Encrypt.GetHash(passbox.Password)))
+                {
+                    DataWindow dw = new DataWindow();
+                    dw.Show();
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Неверный логин или пароль");
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла ошибка. : {ex}");
             }
-            else
-                MessageBox.Show("Неверный логин или пароль");
+            
         }
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {

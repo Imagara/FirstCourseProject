@@ -116,44 +116,6 @@
                         <TextBlock Width="90">
                             <Run Text="Управление"/>
                             <LineBreak/>
-                            <Run Text="точками"/>
-                        </TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-                <TabItem.Content>
-                    <StackPanel>
-                        <Button 
-                            Content="Поиск" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Top" 
-                            Height="20"
-                            Click="FindRouteButton_Click"/>
-                        <Button 
-                            Content="Добавить" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Top" 
-                            Height="20"
-                            Click="AddPointButton_Click"/>
-                        <Button 
-                            Content="Обновить" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Top" 
-                            Height="20"
-                            Click="PointDateView"/>
-                        <Button 
-                            Content="Удалить" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Top" 
-                            Height="20"/>
-                    </StackPanel>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="90">
-                            <Run Text="Управление"/>
-                            <LineBreak/>
                             <Run Text="водителями"/>
                         </TextBlock>
                     </StackPanel>

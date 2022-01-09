@@ -44,7 +44,8 @@
                             Text="Поиск..."
                             Width="94"
                             Foreground="#808080"
-                            VerticalAlignment="Top" TextChanged="UserSearch_TextChanged"/>
+                            VerticalAlignment="Top" 
+                            TextChanged="UserSearch_TextChanged"/>
                         <Button 
                             Content="Добавить" 
                             HorizontalAlignment="Stretch" 

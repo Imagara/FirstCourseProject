@@ -13,10 +13,10 @@ namespace Kusach
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class gr692_gavEntities : DbContext
+    public partial class EDMEntities : DbContext
     {
-        public gr692_gavEntities()
-            : base("name=gr692_gavEntities")
+        public EDMEntities()
+            : base("name=EDMEntities")
         {
         }
     

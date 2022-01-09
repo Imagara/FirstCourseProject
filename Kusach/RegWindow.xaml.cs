@@ -38,8 +38,8 @@ namespace Kusach
                     cnt.db.Dispatcher.Add(newUser);
                     cnt.db.SaveChanges();
                     MessageBox.Show("Вы успешно зарегистрировались");
-                    DataWindow dw = new DataWindow();
-                    dw.Show();
+                    MainWindow mw = new MainWindow();
+                    mw.Show();
                     this.Close();
                 }
             }

@@ -73,22 +73,6 @@
     <Compile Include="AddPointWindow.xaml.cs">
       <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddRouteWindow.xaml.cs">
-      <DependentUpon>AddRouteWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddTransportWindow.xaml.cs">
-      <DependentUpon>AddTransportWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddUserWindow.xaml.cs">
-      <DependentUpon>AddUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="cnt.cs" />
-    <Compile Include="DataWindow.xaml.cs">
-      <DependentUpon>DataWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteUserWindow.xaml.cs">
-      <DependentUpon>DeleteUserWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dispatcher.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
@@ -113,24 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EDM.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Encrypt.cs" />
-    <Compile Include="LogWindow.xaml.cs">
-      <DependentUpon>LogWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\RoutesListPage.xaml.cs">
-      <DependentUpon>RoutesListPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Points.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Compile Include="PointsList.cs">
       <DependentUpon>EDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RegWindow.xaml.cs">
-      <DependentUpon>RegWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RouteList.cs">
       <DependentUpon>EDM.tt</DependentUpon>
@@ -141,17 +112,43 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Transport.cs">
+      <DependentUpon>EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddRouteWindow.xaml.cs">
+      <DependentUpon>AddRouteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddTransportWindow.xaml.cs">
+      <DependentUpon>AddTransportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cnt.cs" />
+    <Compile Include="DataWindow.xaml.cs">
+      <DependentUpon>DataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUserWindow.xaml.cs">
+      <DependentUpon>DeleteUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Encrypt.cs" />
+    <Compile Include="LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoutesListPage.xaml.cs">
+      <DependentUpon>RoutesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegWindow.xaml.cs">
+      <DependentUpon>RegWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestPGPage.xaml.cs">
       <DependentUpon>TestPGPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestRouteEditWindow.xaml.cs">
       <DependentUpon>TestRouteEditWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TestWindow.xaml.cs">
-      <DependentUpon>TestWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transport.cs">
-      <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Page Include="AddDriverWindow.xaml">
       <SubType>Designer</SubType>
@@ -209,10 +206,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -251,7 +244,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="EDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -25,8 +25,8 @@ namespace Kusach
                     MessageBox.Show("Поля не могут быть пустыми.");
                 else if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(logbox.Text + Encrypt.GetHash(passbox.Password)))
                 {
-                    DataWindow dw = new DataWindow();
-                    dw.Show();
+                    MainWindow mw = new MainWindow();
+                    mw.Show();
                     this.Close();
                 }
                 else

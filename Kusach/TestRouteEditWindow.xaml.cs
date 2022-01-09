@@ -36,9 +36,9 @@ namespace Kusach
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TestWindow tw = new TestWindow();
-            tw.Show();
-            this.Close();
+            //TestWindow tw = new TestWindow();
+            //tw.Show();
+            //this.Close();
         }
     }
 }

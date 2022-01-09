@@ -7,51 +7,172 @@
         mc:Ignorable="d"
         Title="TestRouteEditWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="354*"/>
+        </Grid.RowDefinitions>
         <Button
-            Content="Button" 
+            Content="Назад" 
             HorizontalAlignment="Left" 
-            Margin="10,10,0,0" 
             VerticalAlignment="Top" 
-            Width="91" 
-            Height="50" Click="Button_Click"/>
+            Margin="10,10,0,0" 
+            Width="90" 
+            Height="50" 
+            Click="Button_Click"/>
         <TextBox
             Name="RouteNameBox"
-            Height="50"
-            Margin="129,10,548,359"
+            Margin="105,10,10,5"
             Text="Маршрут: #0"
-            />
-
-        <DataGrid 
-            Name="PointsListDataGrid" 
-            AutoGenerateColumns="False" 
-            Height="344" 
-            VerticalAlignment="Top" 
+            FontSize="16"/>
+        <StackPanel
+            Visibility="Hidden"
+            VerticalAlignment="Center"
             HorizontalAlignment="Center" 
-            Width="772" Margin="10,65,10,0">
-            <DataGrid.ItemContainerStyle>
-                <Style TargetType="DataGridRow">
-                    <EventSetter 
-                        Event="MouseDoubleClick" 
-                        Handler="DataGridRow_MouseDoubleClick"/>
-                </Style>
-            </DataGrid.ItemContainerStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn 
-                    Binding="{Binding Points.IdPoint}" 
-                    Header="IdPoint"  
-                    Width="100" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
-                    Binding="{Binding Points.Name}" 
-                    Header="Name" 
-                    Width="100" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
-                    Binding="{Binding Points.location}" 
-                    Header="location" 
-                    Width="100"
-                    IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            Margin="254,16,238,9" 
+            Width="300" 
+            Height="40">
+            <Button
+            Content="Удалить точку"/>
+            <Button
+            Content="Добавить точку"/>
+        </StackPanel>
+
+        <Grid 
+            Grid.Row="1"
+            Margin="10,0,10,0">
+            <TabControl>
+                <TabItem 
+                Height="30" 
+                Width="120">
+                    <TabItem.Header>
+                        <Label 
+                            Content="Остановки"
+                            FontSize="14">
+                        </Label>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid
+                            Name="PointsListDataGrid" 
+                            AutoGenerateColumns="False" 
+                            VerticalAlignment="Stretch" 
+                            HorizontalAlignment="Stretch"
+                            Margin="-3,-3,-3,0"
+                            Grid.Row="0">
+                            <DataGrid.ItemContainerStyle>
+                                <Style TargetType="DataGridRow">
+                                    <EventSetter 
+                                        Event="MouseDoubleClick" 
+                                        Handler="DataGridRow_MouseDoubleClick"/>
+                                </Style>
+                            </DataGrid.ItemContainerStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Points.IdPoint}" 
+                                    Header="IdPoint"  
+                                    Width="100" 
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Points.Name}" 
+                                    Header="Name" 
+                                    Width="100" 
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Points.location}" 
+                                    Header="location" 
+                                    Width="100"
+                                    IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel 
+                            Orientation="Horizontal"
+                            Grid.Row="1">
+                            <Button
+                            Content="Добавить"
+                            Width="90"
+                            Height="30"
+                            Margin="0,0,10,0">
+                            </Button>
+                            <Button
+                            Content="Удалить"
+                            Grid.Row="1"
+                            Width="90"
+                            Height="30">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem 
+                Height="30" 
+                Width="120">
+                    <TabItem.Header>
+                        <Label 
+                            Content="Водители"
+                            FontSize="14">
+                        </Label>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid
+                            Name="DriversListDataGrid" 
+                            AutoGenerateColumns="False" 
+                            VerticalAlignment="Stretch" 
+                            HorizontalAlignment="Stretch"
+                            Margin="-3,-3,-3,0"
+                            Grid.Row="0">
+                            <DataGrid.ItemContainerStyle>
+                                <Style TargetType="DataGridRow">
+                                    <EventSetter 
+                                        Event="MouseDoubleClick" 
+                                        Handler="DataGridRow_MouseDoubleClick"/>
+                                </Style>
+                            </DataGrid.ItemContainerStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Drivers.IdDriver}" 
+                                    Header="Номер"  
+                                    Width="100" 
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Drivers.IdTransport}" 
+                                    Header="Name" 
+                                    Width="100" 
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Points.location}" 
+                                    Header="location" 
+                                    Width="100"
+                                    IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel 
+                            Orientation="Horizontal"
+                            Grid.Row="1">
+                            <Button
+                            Content="Добавить"
+                            Width="90"
+                            Height="30"
+                            Margin="0,0,10,0">
+                            </Button>
+                            <Button
+                            Content="Удалить"
+                            Grid.Row="1"
+                            Width="90"
+                            Height="30">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+
+
     </Grid>
 </Window>

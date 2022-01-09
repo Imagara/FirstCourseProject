@@ -70,7 +70,7 @@
     <Compile Include="AddDriverWindow.xaml.cs">
       <DependentUpon>AddDriverWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddPointWindow.xaml.cs">
+    <Compile Include="Windows\AddPointWindow.xaml.cs">
       <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dispatcher.cs">
@@ -147,14 +147,14 @@
     <Compile Include="TestPGPage.xaml.cs">
       <DependentUpon>TestPGPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestRouteEditWindow.xaml.cs">
-      <DependentUpon>TestRouteEditWindow.xaml</DependentUpon>
+    <Compile Include="Windows\RouteEditWindow.xaml.cs">
+      <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddDriverWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddPointWindow.xaml">
+    <Page Include="Windows\AddPointWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,7 +202,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestRouteEditWindow.xaml">
+    <Page Include="Windows\RouteEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

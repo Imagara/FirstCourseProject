@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kusach"
         mc:Ignorable="d"
         Title="AddPointWindow" 
-        Height="250" 
+        Height="210" 
         Width="300"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -44,7 +44,7 @@
         <Button 
             Content="Создать &#xD;&#xA;место остановки" 
             HorizontalAlignment="Left"
-            Margin="170,200,0,0" 
+            Margin="170,160,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 
@@ -52,7 +52,7 @@
         <Button 
             Content="Отмена"
             HorizontalAlignment="Left" 
-            Margin="10,200,0,0" 
+            Margin="10,160,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 

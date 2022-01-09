@@ -27,8 +27,8 @@ namespace Kusach.Pages
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            TestRouteEditWindow trew = new TestRouteEditWindow(((Routes)RoutesList.SelectedItem).IdRoute);
-            trew.Show();
+            Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((Routes)RoutesList.SelectedItem).IdRoute);
+            rew.Show();
         }
 
         #region Поиск

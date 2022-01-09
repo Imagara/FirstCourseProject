@@ -29,9 +29,9 @@ namespace Kusach
                         IdDispatcher = cnt.db.Dispatcher.Count() + 1,
                         Login = logbox.Text,
                         Password = Encrypt.GetHash(passbox.Text),
-                        FName = FNameBox.Text,
-                        LName = LNameBox.Text,
-                        MName = MNameBox.Text,
+                        Surname = FNameBox.Text,
+                        Name = LNameBox.Text,
+                        Patronymic = MNameBox.Text,
                         Birthday = Convert.ToDateTime(BirthdayBox.Text),
                         PhoneNumber = PhoneBox.Text
                     };

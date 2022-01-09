@@ -73,7 +73,7 @@
     <Compile Include="AddPointWindow.xaml.cs">
       <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddRouteWindow.xaml.cs">
+    <Compile Include="Windows\AddRouteWindow.xaml.cs">
       <DependentUpon>AddRouteWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddTransportWindow.xaml.cs">
@@ -120,6 +120,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RoutesListPage.xaml.cs">
+      <DependentUpon>RoutesListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Points.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
@@ -135,11 +138,11 @@
     <Compile Include="Routes.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>EDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="TestPGPage.xaml.cs">
       <DependentUpon>TestPGPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TestPGWindow.xaml.cs">
-      <DependentUpon>TestPGWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestRouteEditWindow.xaml.cs">
       <DependentUpon>TestRouteEditWindow.xaml</DependentUpon>
@@ -158,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddRouteWindow.xaml">
+    <Page Include="Windows\AddRouteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,15 +193,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RoutesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestPGPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestPGWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,22 +251,18 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="EDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDM.edmx</DependentUpon>
       <LastGenOutput>EDM.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EDM.edmx.sql" />
     <Content Include="EDM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDM.edmx</DependentUpon>
       <LastGenOutput>EDM.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

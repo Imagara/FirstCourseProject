@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kusach"
         mc:Ignorable="d"
         Title="AddRouteWindow" 
-        Height="250" 
+        Height="150" 
         Width="300"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -16,18 +16,6 @@
             Margin="0,10,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
-            <Label 
-            Content="IdDriver" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Height="30" 
-            Width="190"/>
-            <TextBox 
-            x:Name="IdDriverBox"
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Height="30" 
-            Width="190"/>
             <Label 
             Content="Название" 
             HorizontalAlignment="Left" 
@@ -44,7 +32,7 @@
         <Button 
             Content="Создать &#xD;&#xA;маршрут" 
             HorizontalAlignment="Left"
-            Margin="170,200,0,0" 
+            Margin="170,100,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 
@@ -52,7 +40,7 @@
         <Button 
             Content="Отмена"
             HorizontalAlignment="Left" 
-            Margin="10,200,0,0" 
+            Margin="10,100,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 

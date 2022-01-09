@@ -12,19 +12,12 @@ namespace Kusach
     using System;
     using System.Collections.Generic;
     
-    public partial class Transport
+    public partial class sysdiagrams
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Transport()
-        {
-            this.Drivers = new HashSet<Drivers>();
-        }
-    
-        public int IdTransport { get; set; }
-        public string NameOfTransport { get; set; }
-        public string NumberPlate { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Drivers> Drivers { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

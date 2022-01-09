@@ -49,11 +49,6 @@
                     Width="100" 
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
-                    Binding="{Binding IdDriver}" 
-                    Header="IdDriver" 
-                    Width="100" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
                     Binding="{Binding Name}" 
                     Header="Name" 
                     Width="100"

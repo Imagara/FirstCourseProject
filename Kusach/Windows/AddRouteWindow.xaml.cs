@@ -31,20 +31,27 @@ namespace Kusach
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (IdDriverBox.Text == "" || RouteNameBox.Text == "")
+            if (RouteNameBox.Text == "")
                 MessageBox.Show("Поля не могут быть пустыми.");
             else
             {
-                Routes newRoute = new Routes()
+                try
                 {
-                    IdRoute = cnt.db.Routes.Count() + 1,
-                    IdDriver = Convert.ToInt32(IdDriverBox.Text),
-                    Name = RouteNameBox.Text
-                };
-                cnt.db.Routes.Add(newRoute);
-                cnt.db.SaveChanges();
-                MessageBox.Show("Маршрут успешно создан.");
-                this.Close();
+                    Routes newRoute = new Routes()
+                    {
+                        IdRoute = cnt.db.Routes.Count() + 1,
+                        Name = RouteNameBox.Text
+                    };
+                    cnt.db.Routes.Add(newRoute);
+                    cnt.db.SaveChanges();
+                    MessageBox.Show("Маршрут успешно создан.");
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка создания маршрута.");
+                    this.Close();
+                }
             }
         }
     }

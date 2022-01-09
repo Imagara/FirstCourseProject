@@ -32,7 +32,28 @@ namespace Kusach
         }
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("loaded");
+            MainFrame.Content = new Pages.RoutesListPage();
         }
+        #region LeftPanelButtons
+        private void RoutesButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new TestPGPage();
+        }
+
+        private void DriversButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void VehButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
     }
 }

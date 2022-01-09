@@ -2,6 +2,6 @@
 {
     class cnt
     {
-        public static EDM db = new EDM();
+        public static gr692_gavEntities db = new gr692_gavEntities();
     }
 }

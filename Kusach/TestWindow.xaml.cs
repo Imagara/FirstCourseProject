@@ -35,7 +35,7 @@ namespace Kusach
         private void Find_Click(object sender, RoutedEventArgs e)
         {
             if(SearchBox.Text != "")
-                RoutesList.ItemsSource = cnt.db.Routes.Where(item => (item.IdRoute + " " + item.IdDriver + " " + item.Name).Contains(SearchBox.Text)).ToList();
+                RoutesList.ItemsSource = cnt.db.Routes.Where(item => (item.IdRoute + " " + item.Name).Contains(SearchBox.Text)).ToList();
             else
                 RoutesList.ItemsSource = cnt.db.Routes.ToList();
         }

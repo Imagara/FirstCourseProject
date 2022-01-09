@@ -24,7 +24,7 @@ namespace Kusach
         private void RoutesDateView(object sender, RoutedEventArgs e)
         {
             var query = from Routes in cnt.db.Routes
-                        select new { Routes.IdRoute, Routes.IdDriver, Routes.Name };
+                        select new { Routes.IdRoute, Routes.Name };
             DataGrid.ItemsSource = query.ToList();
         }
         private void TransportDateView(object sender, RoutedEventArgs e)

@@ -31,14 +31,25 @@ namespace Kusach.Pages
             trew.Show();
         }
 
-        private void Find_Click(object sender, RoutedEventArgs e)
+        #region Поиск
+        private void SearchBoxPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //if (SearchBox.Text != "")
-            //    RoutesList.ItemsSource = cnt.db.Routes.Where(item => (item.IdRoute + " " + item.Name).Contains(SearchBox.Text)).ToList();
-            //else
-            //    RoutesList.ItemsSource = cnt.db.Routes.ToList();
+            if (SearchBox.Text == "Поиск...")
+                SearchBox.Text = "";
         }
-
+        private void SearchLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchBox.Text == "")
+                SearchBox.Text = "Поиск...";
+        }
+        private void SearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchBox.Text != "" && SearchBox.Text != "Поиск...")
+                RoutesList.ItemsSource = cnt.db.Routes.Where(item => (item.IdRoute + " " + item.Name).Contains(SearchBox.Text)).ToList();
+            else
+                cnt.db.Routes.ToList();
+        }
+        #endregion
         private void AddRouteButton_Click(object sender, RoutedEventArgs e)
         {
             AddRouteWindow arw = new AddRouteWindow();
@@ -52,7 +63,7 @@ namespace Kusach.Pages
 
         private void UpdateRoutesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            RoutesList.ItemsSource = cnt.db.Routes.ToList();
         }
     }
 }

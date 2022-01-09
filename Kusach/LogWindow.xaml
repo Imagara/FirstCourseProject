@@ -48,7 +48,8 @@
             VerticalAlignment="Top" 
             Width="150" 
             Click="LogButton_Click" 
-            IsDefault="True" Height="40"/>
+            IsDefault="True"
+            Height="40"/>
         <Button 
             x:Name="RegButton" 
             Content="Регистрация" 

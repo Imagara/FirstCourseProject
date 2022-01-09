@@ -29,6 +29,11 @@ namespace Kusach
             this.Close();
         }
 
+        public void OnLoad(object sender, RoutedEventArgs e)
+        {
+            RouteNameBox.Focus();
+        }
+
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
             if (RouteNameBox.Text == "")
@@ -44,7 +49,6 @@ namespace Kusach
                     };
                     cnt.db.Routes.Add(newRoute);
                     cnt.db.SaveChanges();
-                    MessageBox.Show("Маршрут успешно создан.");
                     this.Close();
                 }
                 catch

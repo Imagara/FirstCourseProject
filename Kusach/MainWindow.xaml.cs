@@ -37,21 +37,21 @@ namespace Kusach
         #region LeftPanelButtons
         private void RoutesButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new TestPGPage();
+            MainFrame.Content = new Pages.RoutesListPage();
         }
 
         private void DriversButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new TestPGPage();
         }
         private void VehButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new TestPGPage();
         }
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new TestPGPage();
         }
         #endregion
 

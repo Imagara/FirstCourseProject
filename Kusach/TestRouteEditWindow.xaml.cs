@@ -30,6 +30,7 @@ namespace Kusach
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if(((PointsList)PointsListDataGrid.SelectedItem) != null)
             MessageBox.Show("cell: " + ((PointsList)PointsListDataGrid.SelectedItem).IdPoint);
         }
 

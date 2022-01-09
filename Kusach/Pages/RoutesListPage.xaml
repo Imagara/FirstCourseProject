@@ -16,7 +16,12 @@
             <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <TextBox 
+            <TextBox
+                Name="SearchBox"
+                PreviewMouseLeftButtonUp="SearchBoxPreviewMouseLeftButtonUp"
+                LostFocus="SearchLostFocus"
+                TextChanged="SearchTextChanged"
+                FontSize="14"
                 TextWrapping="Wrap"
                 Text="Поиск..." 
                 Width="120"/>
@@ -39,7 +44,7 @@
             AutoGenerateColumns="False" 
             VerticalAlignment="Top" 
             HorizontalAlignment="Left" 
-            Width="760">
+            CanUserAddRows="false">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter 
@@ -56,6 +61,7 @@
                 <DataGridTextColumn 
                     Binding="{Binding Name}" 
                     Header="Название"
+                    Width="500"
                     IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>

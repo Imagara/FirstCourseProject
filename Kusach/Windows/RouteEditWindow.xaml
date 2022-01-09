@@ -95,17 +95,33 @@
                             Orientation="Horizontal"
                             Grid.Row="1">
                             <Button
-                                Content="Добавить"
+                                Content="Обновить"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0"
+                                Click="UpdatePoints_Click">
+                            </Button>
+                            <Button
+                                Content="Создать"
                                 Width="90"
                                 Height="30"
                                 Margin="0,0,10,0"
                                 Click="AddPoint_Click">
                             </Button>
                             <Button
+                                Content="Добавить"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0"
+                                Click="AddFromListPoint_Click">
+                            </Button>
+                            <Button
+                                Visibility="Visible"
                                 Content="Удалить"
                                 Grid.Row="1"
                                 Width="90"
-                                Height="30">
+                                Height="30"
+                                Click="RemovePoint_Click">
                             </Button>
                         </StackPanel>
                     </Grid>
@@ -167,16 +183,29 @@
                             Orientation="Horizontal"
                             Grid.Row="1">
                             <Button
-                            Content="Добавить"
-                            Width="90"
-                            Height="30"
-                            Margin="0,0,10,0">
+                                Content="Обновить"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0">
                             </Button>
                             <Button
-                            Content="Удалить"
-                            Grid.Row="1"
-                            Width="90"
-                            Height="30">
+                                Content="Создать"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0">
+                            </Button>
+                            <Button
+                                Content="Добавить"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0">
+                            </Button>
+                            <Button
+                                Visibility="Hidden"
+                                Content="Удалить"
+                                Grid.Row="1"
+                                Width="90"
+                                Height="30">
                             </Button>
                         </StackPanel>
                     </Grid>

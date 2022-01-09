@@ -46,7 +46,8 @@ namespace Kusach
                         location = LocationBox.Text
                     };
                     cnt.db.Points.Add(newPoint);
-                    if(RouteId != -1)
+                    cnt.db.SaveChanges();
+                    if (RouteId != -1)
                     {
                         PointsList newPointRoute = new PointsList()
                         {

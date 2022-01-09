@@ -27,7 +27,7 @@
                 Width="120"/>
             <Button
                 Width="120"
-                Content="Добавить"
+                Content="Создать"
                 Click="AddRouteButton_Click"/>
             <Button
                 Width="120"

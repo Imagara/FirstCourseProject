@@ -136,15 +136,9 @@
     <Compile Include="Windows\AddTransportWindow.xaml.cs">
       <DependentUpon>AddTransportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddUserWindow.xaml.cs">
-      <DependentUpon>AddUserWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="cnt.cs" />
-    <Compile Include="DeleteUserWindow.xaml.cs">
-      <DependentUpon>DeleteUserWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Encrypt.cs" />
-    <Compile Include="LogWindow.xaml.cs">
+    <Compile Include="Windows\LogWindow.xaml.cs">
       <DependentUpon>LogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -153,7 +147,7 @@
     <Compile Include="Pages\RoutesListPage.xaml.cs">
       <DependentUpon>RoutesListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegWindow.xaml.cs">
+    <Compile Include="Windows\RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DriverEditWindow.xaml.cs">
@@ -204,15 +198,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeleteUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LogWindow.xaml">
+    <Page Include="Windows\LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,7 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegWindow.xaml">
+    <Page Include="Windows\RegWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

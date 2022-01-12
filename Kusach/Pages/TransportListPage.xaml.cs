@@ -17,8 +17,8 @@ namespace Kusach.Pages
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Transport)TransportList.SelectedItem).IdDriver);
-            dew.Show();
+            Windows.TransportEditWindow tew = new Windows.TransportEditWindow(((Transport)TransportList.SelectedItem).IdTransport);
+            tew.Show();
         }
 
         #region Поиск
@@ -35,15 +35,15 @@ namespace Kusach.Pages
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
             if (SearchBox.Text != "" && SearchBox.Text != "Поиск...")
-                TransportList.ItemsSource = cnt.db.Transport.Where(item => (item.IdDriver + " " + item.Transport.NameOfTransport + " " + item.Surname + " " + item.Name + " " + item.Patronymic).Contains(SearchBox.Text)).ToList();
+                TransportList.ItemsSource = cnt.db.Transport.Where(item => (item.IdTransport + " " + item.NameOfTransport + " " + item.NumberPlate).Contains(SearchBox.Text)).ToList();
             else
                 cnt.db.Transport.ToList();
         }
         #endregion
-        private void AddDriverButton_Click(object sender, RoutedEventArgs e)
+        private void AddTransportButton_Click(object sender, RoutedEventArgs e)
         {
-            AddDriverWindow adw = new AddDriverWindow();
-            adw.Show();
+            AddTransportWindow atw = new AddTransportWindow();
+            atw.Show();
         }
 
         private void DeleteTransportButton_Click(object sender, RoutedEventArgs e)

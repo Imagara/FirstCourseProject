@@ -28,15 +28,15 @@
             <Button
                 Width="120"
                 Content="Создать"
-                Click="AddRouteButton_Click"/>
+                Click="AddTransportButton_Click"/>
             <Button
                 Width="120"
                 Content="Удалить"
-                Click="DeleteRouteButton_Click"/>
+                Click="DeleteTransportButton_Click"/>
             <Button
                 Width="120"
                 Content="Обновить"
-                Click="UpdateRoutesButton_Click"/>
+                Click="UpdateTransportButton_Click"/>
         </StackPanel>
         <DataGrid
             Name="TransportList" 

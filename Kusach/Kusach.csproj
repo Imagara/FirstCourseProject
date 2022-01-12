@@ -130,7 +130,7 @@
     <Compile Include="Windows\AddRouteWindow.xaml.cs">
       <DependentUpon>AddRouteWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddTransportWindow.xaml.cs">
+    <Compile Include="Windows\AddTransportWindow.xaml.cs">
       <DependentUpon>AddTransportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddUserWindow.xaml.cs">
@@ -165,6 +165,9 @@
     <Compile Include="Windows\RouteEditWindow.xaml.cs">
       <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TransportEditWindow.xaml.cs">
+      <DependentUpon>TransportEditWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\DriversListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,7 +196,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddTransportWindow.xaml">
+    <Page Include="Windows\AddTransportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RouteEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TransportEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

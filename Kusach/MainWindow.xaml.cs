@@ -34,7 +34,7 @@ namespace Kusach
         }
         private void VehButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new TestPGPage();
+            MainFrame.Content = new Pages.TransportListPage();
         }
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)

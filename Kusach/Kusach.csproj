@@ -70,6 +70,9 @@
     <Compile Include="AddDriverWindow.xaml.cs">
       <DependentUpon>AddDriverWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddPointToRouteWindow.xaml.cs">
+      <DependentUpon>AddPointToRouteWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddPointWindow.xaml.cs">
       <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddPointToRouteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

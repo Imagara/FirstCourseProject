@@ -19,14 +19,14 @@ namespace Kusach.Windows
     /// </summary>
     public partial class RouteEditWindow : Window
     {
-        int RouteId;
+        int routeId;
         public RouteEditWindow(int id)
         {
             InitializeComponent();
-            RouteId = id;
-            RouteNameBox.Text = cnt.db.Routes.Where(item => item.IdRoute == RouteId).Select(item => item.Name).FirstOrDefault();
-            PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == RouteId).ToList();
-            DriversListDataGrid.ItemsSource = cnt.db.DriversList.Where(item => item.IdRoute == RouteId).ToList();
+            routeId = id;
+            RouteNameBox.Text = cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
+            PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
+            DriversListDataGrid.ItemsSource = cnt.db.DriversList.Where(item => item.IdRoute == routeId).ToList();
 
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -39,14 +39,14 @@ namespace Kusach.Windows
         }
         private void AddPoint_Click(object sender, RoutedEventArgs e)
         {
-            AddPointWindow apw = new AddPointWindow(RouteId);
+            AddPointWindow apw = new AddPointWindow(routeId);
             apw.ShowDialog();
         }
         private void RemovePoint_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                cnt.db.PointsList.Remove(cnt.db.PointsList.Where(item => item.IdRoute == RouteId && item.IdPoint == ((PointsList)PointsListDataGrid.SelectedItem).IdPoint).FirstOrDefault());
+                cnt.db.PointsList.Remove(cnt.db.PointsList.Where(item => item.IdRoute == routeId && item.IdPoint == ((PointsList)PointsListDataGrid.SelectedItem).IdPoint).FirstOrDefault());
                 cnt.db.SaveChanges();
             }
             catch
@@ -62,12 +62,13 @@ namespace Kusach.Windows
 
         private void AddFromListPoint_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPointToRouteWindow aptrw = new AddPointToRouteWindow(routeId); 
+            aptrw.ShowDialog();
         }
 
         private void UpdatePoints_Click(object sender, RoutedEventArgs e)
         {
-            PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == RouteId).ToList();
+            PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
         }
     }
 }

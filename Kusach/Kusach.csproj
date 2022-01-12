@@ -67,8 +67,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddDriverWindow.xaml.cs">
+    <Compile Include="Windows\AddDriverWindow.xaml.cs">
       <DependentUpon>AddDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddDriverToRouteWindow.xaml.cs">
+      <DependentUpon>AddDriverToRouteWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddPointToRouteWindow.xaml.cs">
       <DependentUpon>AddPointToRouteWindow.xaml</DependentUpon>
@@ -147,10 +150,17 @@
     <Compile Include="TestPGPage.xaml.cs">
       <DependentUpon>TestPGPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PointEditWindow.xaml.cs">
+      <DependentUpon>PointEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\RouteEditWindow.xaml.cs">
       <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddDriverWindow.xaml">
+    <Page Include="Windows\AddDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddDriverToRouteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestPGPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PointEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

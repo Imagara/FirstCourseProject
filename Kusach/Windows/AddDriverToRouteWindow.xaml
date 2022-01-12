@@ -1,0 +1,68 @@
+﻿<Window x:Class="Kusach.Windows.AddDriverToRouteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kusach.Windows"
+        mc:Ignorable="d"
+        Title="AddDriverToRouteWindow" 
+        Height="300" 
+        Width="450"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="224*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <DataGrid
+            Name="DriversListDataGrid" 
+            AutoGenerateColumns="False" 
+            VerticalAlignment="Stretch" 
+            HorizontalAlignment="Stretch"
+            CanUserAddRows="False"
+            Grid.Row="0">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter 
+                        Event="MouseDoubleClick" 
+                        Handler="PointsDataGridRow_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Binding="{Binding IdDriver}" 
+                    Header="Номер"  
+                    Width="50" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Transport.NameOfTransport}" 
+                    Header="Транспортное средство" 
+                    Width="200" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Surname}" 
+                    Header="Фамилия" 
+                    Width="200"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Name}" 
+                    Header="Имя" 
+                    Width="200"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Patronymic}" 
+                    Header="Отчество" 
+                    Width="200"
+                    IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button 
+            Grid.Row="1"
+            Content="Отмена"
+            Width="90"
+            Height="35"
+            HorizontalAlignment="Center"
+            Click="BackButton_Click"/>
+    </Grid>
+</Window>

@@ -15,19 +15,19 @@ using System.Windows.Shapes;
 namespace Kusach.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для AddPointToRouteWindow.xaml
+    /// Логика взаимодействия для AddDriverToRouteWindow.xaml
     /// </summary>
-    public partial class AddPointToRouteWindow : Window
+    public partial class AddDriverToRouteWindow : Window
     {
-        public AddPointToRouteWindow()
+        public int driverId = -1;
+        public AddDriverToRouteWindow(int id)
         {
             InitializeComponent();
-            PointsListDataGrid.ItemsSource = cnt.db.Points.ToList();
+            DriversListDataGrid.ItemsSource = cnt.db.Drivers.ToList();
         }
-        public int pointId = -1;
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            pointId = ((Points)PointsListDataGrid.SelectedItem).IdPoint;
+            driverId = ((Drivers)DriversListDataGrid.SelectedItem).IdDriver;
             this.Close();
         }
 

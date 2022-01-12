@@ -25,12 +25,12 @@ namespace Kusach.Windows
             InitializeComponent();
             routeId = id;
             RouteNameBox.Text = cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
-            PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
-            DriversListDataGrid.ItemsSource = cnt.db.DriversList.Where(item => item.IdRoute == routeId).ToList();
+            Update();
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("cell: " + ((PointsList)PointsListDataGrid.SelectedItem).IdPoint);
+            PointEditWindow pew = new PointEditWindow(((PointsList)PointsListDataGrid.SelectedItem).IdPoint);
+            pew.ShowDialog();
         }
         private void DriversDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -41,13 +41,18 @@ namespace Kusach.Windows
             AddPointWindow apw = new AddPointWindow(routeId);
             apw.ShowDialog();
         }
+        private void AddDriver_Click(object sender, RoutedEventArgs e)
+        {
+            AddDriverWindow adw = new AddDriverWindow(routeId);
+            adw.ShowDialog();
+        }
         private void RemovePoint_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 cnt.db.PointsList.Remove(cnt.db.PointsList.Where(item => item.IdRoute == routeId && item.IdPoint == ((PointsList)PointsListDataGrid.SelectedItem).IdPoint).FirstOrDefault());
                 cnt.db.SaveChanges();
-                update();
+                Update();
             }
             catch
             {
@@ -57,12 +62,15 @@ namespace Kusach.Windows
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            Routes route = cnt.db.Routes.Where(item => item.IdRoute == routeId).FirstOrDefault();
+            route.Name = RouteNameBox.Text;
+            cnt.db.SaveChanges();
             this.Close();
         }
 
         private void AddFromListPoint_Click(object sender, RoutedEventArgs e)
         {
-            AddPointToRouteWindow aptrw = new AddPointToRouteWindow(routeId);
+            AddPointToRouteWindow aptrw = new AddPointToRouteWindow();
             aptrw.ShowDialog();
             int pointId = aptrw.pointId;
             if (pointId != -1)
@@ -77,7 +85,7 @@ namespace Kusach.Windows
                     };
                     cnt.db.PointsList.Add(newAddPointToRoute);
                     cnt.db.SaveChanges();
-                    update();
+                    Update();
                     MessageBox.Show("Точка успешно добавлена");
                 }
                 catch
@@ -86,13 +94,42 @@ namespace Kusach.Windows
                 }
             }
         }
-        void update()
+
+        private void AddFromListDriver_Click(object sender, RoutedEventArgs e)
+        {
+            AddDriverToRouteWindow adtrw = new AddDriverToRouteWindow(routeId);
+            adtrw.ShowDialog();
+            int driverId = adtrw.driverId;
+            if (driverId != -1)
+            {
+                try
+                {
+                    DriversList newAddDriverToRoute = new DriversList()
+                    {
+                        Id = cnt.db.DriversList.Select(p => p.Id).DefaultIfEmpty(0).Max() + 1,
+                        IdDriver = driverId,
+                        IdRoute = routeId
+                    };
+                    cnt.db.DriversList.Add(newAddDriverToRoute);
+                    cnt.db.SaveChanges();
+                    Update();
+                    MessageBox.Show("Водитель успешно добавлен");
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка добавления записи");
+                }
+            }
+        }
+
+        void Update()
         {
             PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
+            DriversListDataGrid.ItemsSource = cnt.db.DriversList.Where(item => item.IdRoute == routeId).ToList();
         }
-        private void UpdatePoints_Click(object sender, RoutedEventArgs e)
+        private void Update_Click(object sender, RoutedEventArgs e)
         {
-            update();
+            Update();
         }
     }
 }

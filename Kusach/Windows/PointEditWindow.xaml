@@ -1,12 +1,12 @@
-﻿<Window x:Class="Kusach.AddDriverWindow"
+﻿<Window x:Class="Kusach.Windows.PointEditWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Kusach"
+        xmlns:local="clr-namespace:Kusach.Windows"
         mc:Ignorable="d"
-        Title="AddDriverWindow" 
-        Height="350" 
+        Title="PointEditWindow" 
+        Height="210" 
         Width="300"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -17,19 +17,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
             <Label 
-            Content="IdTransport" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Height="30" 
-            Width="190"/>
-            <TextBox 
-            x:Name="IdTransportBox"
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Height="30" 
-            Width="190"/>
-            <Label 
-            Content="Имя" 
+            Content="Название" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="30" 
@@ -41,45 +29,37 @@
             Height="30" 
             Width="190"/>
             <Label 
-                Content="Фамилия" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Height="30" 
-                Width="190"/>
+            Content="Локация" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Height="30" 
+            Width="190"/>
             <TextBox 
-                x:Name="SurnameBox"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Height="30" 
-                Width="190"/>
-            <Label 
-                Content="Отчество" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Height="30" 
-                Width="190"/>
-            <TextBox 
-                x:Name="PatronymicBox"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Height="30" 
-                Width="190"/>
+            x:Name="LocationBox"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Height="30" 
+            Width="190"/>
         </StackPanel>
         <Button 
-            Content="Создать &#xD;&#xA;водителя" 
+            Content="Сохранить" 
             HorizontalAlignment="Left"
-            Margin="170,300,0,0" 
+            Margin="170,160,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 
-            Click="AddDriverButton_Click"/>
+            Click="SavePointButton_Click"/>
         <Button 
             Content="Отмена"
             HorizontalAlignment="Left" 
-            Margin="10,300,0,0" 
+            Margin="10,160,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 
-            Click="BackButton_Click"/>
+            Click="BackButton_Click"
+            IsDefault="True"/>
+        <Border 
+            BorderBrush="Black" 
+            BorderThickness="2"/>
     </Grid>
 </Window>

@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\DriversListPage.xaml.cs">
+      <DependentUpon>DriversListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddDriverWindow.xaml.cs">
       <DependentUpon>AddDriverWindow.xaml</DependentUpon>
     </Compile>
@@ -150,12 +153,19 @@
     <Compile Include="TestPGPage.xaml.cs">
       <DependentUpon>TestPGPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DriverEditWindow.xaml.cs">
+      <DependentUpon>DriverEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PointEditWindow.xaml.cs">
       <DependentUpon>PointEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RouteEditWindow.xaml.cs">
       <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\DriversListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddDriverWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestPGPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DriverEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

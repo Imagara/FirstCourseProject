@@ -42,7 +42,7 @@ namespace Kusach
 
         private void DriversButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new TestPGPage();
+            MainFrame.Content = new Pages.DriversListPage();
         }
         private void VehButton_Click(object sender, RoutedEventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿<Page x:Class="Kusach.Pages.RoutesListPage"
+﻿<Page x:Class="Kusach.Pages.DriversListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="419"
       d:DesignWidth="692"
-      Title="RoutesListPage">
+      Title="DriversListPage">
     <Grid 
         Background="White" 
         Margin="25">
@@ -28,18 +28,18 @@
             <Button
                 Width="120"
                 Content="Создать"
-                Click="AddRouteButton_Click"/>
+                Click="AddDriverButton_Click"/>
             <Button
                 Width="120"
                 Content="Удалить"
-                Click="DeleteRouteButton_Click"/>
+                Click="DeleteDriversButton_Click"/>
             <Button
                 Width="120"
                 Content="Обновить"
-                Click="UpdateRoutesButton_Click"/>
+                Click="UpdateDriversButton_Click"/>
         </StackPanel>
         <DataGrid
-            Name="RoutesList" 
+            Name="DriversList" 
             Grid.Row="1"
             AutoGenerateColumns="False" 
             VerticalAlignment="Top" 
@@ -54,13 +54,25 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding IdRoute}" 
+                    Binding="{Binding IdDriver}" 
                     Header="Номер"  
-                    Width="70"
+                    Width="50" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Transport.NameOfTransport}" 
+                    Header="Транспортное средство" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Surname}" 
+                    Header="Фамилия" 
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
                     Binding="{Binding Name}" 
-                    Header="Название"
+                    Header="Имя" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Patronymic}" 
+                    Header="Отчество" 
                     IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>

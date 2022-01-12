@@ -39,7 +39,7 @@ namespace Kusach
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new TestPGPage();
+            MainFrame.Content = new Pages.DispatcherListPage();
         }
         #endregion
 

@@ -27,7 +27,6 @@ namespace Kusach.Windows
             RouteNameBox.Text = cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
             PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
             DriversListDataGrid.ItemsSource = cnt.db.DriversList.Where(item => item.IdRoute == routeId).ToList();
-
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -48,6 +47,7 @@ namespace Kusach.Windows
             {
                 cnt.db.PointsList.Remove(cnt.db.PointsList.Where(item => item.IdRoute == routeId && item.IdPoint == ((PointsList)PointsListDataGrid.SelectedItem).IdPoint).FirstOrDefault());
                 cnt.db.SaveChanges();
+                update();
             }
             catch
             {
@@ -62,13 +62,37 @@ namespace Kusach.Windows
 
         private void AddFromListPoint_Click(object sender, RoutedEventArgs e)
         {
-            AddPointToRouteWindow aptrw = new AddPointToRouteWindow(routeId); 
+            AddPointToRouteWindow aptrw = new AddPointToRouteWindow(routeId);
             aptrw.ShowDialog();
+            int pointId = aptrw.pointId;
+            if (pointId != -1)
+            {
+                try
+                {
+                    PointsList newAddPointToRoute = new PointsList()
+                    {
+                        Id = cnt.db.PointsList.Select(p => p.Id).DefaultIfEmpty(0).Max()+1,
+                        IdPoint = pointId,
+                        IdRoute = routeId
+                    };
+                    cnt.db.PointsList.Add(newAddPointToRoute);
+                    cnt.db.SaveChanges();
+                    update();
+                    MessageBox.Show("Точка успешно добавлена");
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка добавления записи");
+                }
+            }
         }
-
-        private void UpdatePoints_Click(object sender, RoutedEventArgs e)
+        void update()
         {
             PointsListDataGrid.ItemsSource = cnt.db.PointsList.Where(item => item.IdRoute == routeId).ToList();
+        }
+        private void UpdatePoints_Click(object sender, RoutedEventArgs e)
+        {
+            update();
         }
     }
 }

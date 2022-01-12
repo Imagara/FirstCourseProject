@@ -44,7 +44,7 @@ namespace Kusach
                 {
                     Routes newRoute = new Routes()
                     {
-                        IdRoute = cnt.db.Routes.Count() + 1,
+                        IdRoute = cnt.db.Routes.Select(p => p.IdRoute).DefaultIfEmpty(0).Max() + 1,
                         Name = RouteNameBox.Text
                     };
                     cnt.db.Routes.Add(newRoute);

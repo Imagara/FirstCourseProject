@@ -37,7 +37,7 @@ namespace Kusach
             {
                 Drivers newDriver = new Drivers()
                 {
-                    IdDriver = cnt.db.Drivers.Count()+1,
+                    IdDriver = cnt.db.Drivers.Select(p => p.IdDriver).DefaultIfEmpty(0).Max() + 1,
                     IdTransport = Convert.ToInt32(IdTransportBox.Text),
                     Name = NameBox.Text,
                     Surname = SurnameBox.Text,

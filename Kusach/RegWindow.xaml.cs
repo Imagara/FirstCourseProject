@@ -26,7 +26,7 @@ namespace Kusach
                 {
                     Dispatcher newUser = new Dispatcher()
                     {
-                        IdDispatcher = cnt.db.Dispatcher.Count() + 1,
+                        IdDispatcher = cnt.db.Dispatcher.Select(p => p.IdDispatcher).DefaultIfEmpty(0).Max() + 1,
                         Login = logbox.Text,
                         Password = Encrypt.GetHash(passbox.Text),
                         Surname = FNameBox.Text,
@@ -47,7 +47,6 @@ namespace Kusach
             {
                 MessageBox.Show($"Произошла ошибка. : {ex}");
             }
-            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

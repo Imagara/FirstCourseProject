@@ -50,6 +50,5 @@
         <Border 
             BorderBrush="Black" 
             BorderThickness="2"/>
-
     </Grid>
 </Window>

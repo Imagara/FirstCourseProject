@@ -15,7 +15,7 @@
             <RowDefinition Height="354*"/>
         </Grid.RowDefinitions>
         <Button
-            Content="Выход" 
+            Content="Сохранить&#xD;&#xA; и выйти" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Margin="10,10,0,0" 

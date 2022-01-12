@@ -24,7 +24,7 @@ namespace Kusach
             {
                 Dispatcher newUser = new Dispatcher()
                 {
-                    IdDispatcher = cnt.db.Dispatcher.Count() + 1,
+                    IdDispatcher = cnt.db.Dispatcher.Select(p => p.IdDispatcher).DefaultIfEmpty(0).Max() + 1,
                     Login = logbox.Text,
                     Password = passbox.Text
                 };

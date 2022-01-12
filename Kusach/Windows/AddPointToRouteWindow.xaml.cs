@@ -19,16 +19,16 @@ namespace Kusach.Windows
     /// </summary>
     public partial class AddPointToRouteWindow : Window
     {
-        int routeId;
         public AddPointToRouteWindow(int id)
         {
             InitializeComponent();
-            routeId = id;
             PointsListDataGrid.ItemsSource = cnt.db.Points.ToList();
         }
+        public int pointId = -1;
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("cell: " + ((Points)PointsListDataGrid.SelectedItem).IdPoint);
+            pointId = ((Points)PointsListDataGrid.SelectedItem).IdPoint;
+            this.Close();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

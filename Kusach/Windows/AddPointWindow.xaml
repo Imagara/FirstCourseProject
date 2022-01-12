@@ -56,6 +56,10 @@
             VerticalAlignment="Top" 
             Height="40" 
             Width="120" 
-            Click="BackButton_Click"/>
+            Click="BackButton_Click"
+            IsDefault="True"/>
+        <Border 
+            BorderBrush="Black" 
+            BorderThickness="2"/>
     </Grid>
 </Window>

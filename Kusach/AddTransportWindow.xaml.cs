@@ -32,7 +32,7 @@ namespace Kusach
             {
                 Transport newTransport = new Transport()
                 {
-                    IdTransport = cnt.db.Transport.Count() + 1,
+                    IdTransport = cnt.db.Transport.Select(p => p.IdTransport).DefaultIfEmpty(0).Max() + 1,
                     NameOfTransport = NameOfTransportBox.Text,
                     NumberPlate = NumberPlateBox.Text
                 };

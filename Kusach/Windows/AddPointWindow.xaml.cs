@@ -19,11 +19,11 @@ namespace Kusach
     /// </summary>
     public partial class AddPointWindow : Window
     {
-        int RouteId;
+        int routeId, pointId;
         public AddPointWindow(int id = -1)
         {
             InitializeComponent();
-            RouteId = id;
+            routeId = id;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -39,21 +39,22 @@ namespace Kusach
             {
                 try
                 {
+                    pointId = cnt.db.Points.Select(p => p.IdPoint).DefaultIfEmpty(0).Max() + 1;
                     Points newPoint = new Points()
                     {
-                        IdPoint = cnt.db.Points.Count() + 1,
+                        IdPoint = pointId,
                         Name = NameBox.Text,
                         location = LocationBox.Text
                     };
                     cnt.db.Points.Add(newPoint);
                     cnt.db.SaveChanges();
-                    if (RouteId != -1)
+                    if (routeId != -1)
                     {
                         PointsList newPointRoute = new PointsList()
                         {
-                            Id = cnt.db.PointsList.Count() + 1,
-                            IdPoint = cnt.db.Points.Count(),
-                            IdRoute = RouteId
+                            Id = cnt.db.PointsList.Select(p => p.Id).DefaultIfEmpty(0).Max() + 1,
+                            IdPoint = pointId,
+                            IdRoute = routeId
                         };
                         cnt.db.PointsList.Add(newPointRoute);
                     }

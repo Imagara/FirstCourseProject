@@ -70,6 +70,9 @@
     <Compile Include="Pages\DriversListPage.xaml.cs">
       <DependentUpon>DriversListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TransportListPage.xaml.cs">
+      <DependentUpon>TransportListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddDriverWindow.xaml.cs">
       <DependentUpon>AddDriverWindow.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <DependentUpon>RouteEditWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\DriversListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TransportListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

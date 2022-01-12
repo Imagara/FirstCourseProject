@@ -6,18 +6,18 @@ using System.Windows.Input;
 namespace Kusach.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DriversListPage.xaml
+    /// Логика взаимодействия для TransportListPage.xaml
     /// </summary>
-    public partial class DriversListPage : Page
+    public partial class TransportListPage : Page
     {
-        public DriversListPage()
+        public TransportListPage()
         {
             InitializeComponent();
-            DriversList.ItemsSource = cnt.db.Drivers.ToList();
+            TransportList.ItemsSource = cnt.db.Transport.ToList();
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Drivers)DriversList.SelectedItem).IdDriver);
+            Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Transport)TransportList.SelectedItem).IdDriver);
             dew.Show();
         }
 
@@ -35,9 +35,9 @@ namespace Kusach.Pages
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
             if (SearchBox.Text != "" && SearchBox.Text != "Поиск...")
-                DriversList.ItemsSource = cnt.db.Drivers.Where(item => (item.IdDriver + " " + item.Transport.NameOfTransport + " " + item.Surname + " " + item.Name + " " + item.Patronymic).Contains(SearchBox.Text)).ToList();
+                TransportList.ItemsSource = cnt.db.Transport.Where(item => (item.IdDriver + " " + item.Transport.NameOfTransport + " " + item.Surname + " " + item.Name + " " + item.Patronymic).Contains(SearchBox.Text)).ToList();
             else
-                cnt.db.Drivers.ToList();
+                cnt.db.Transport.ToList();
         }
         #endregion
         private void AddDriverButton_Click(object sender, RoutedEventArgs e)
@@ -46,14 +46,14 @@ namespace Kusach.Pages
             adw.Show();
         }
 
-        private void DeleteDriversButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteTransportButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void UpdateDriversButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateTransportButton_Click(object sender, RoutedEventArgs e)
         {
-            DriversList.ItemsSource = cnt.db.Drivers.ToList();
+            TransportList.ItemsSource = cnt.db.Transport.ToList();
         }
     }
 }

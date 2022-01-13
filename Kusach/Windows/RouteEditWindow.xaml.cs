@@ -24,7 +24,8 @@ namespace Kusach.Windows
         }
         private void DriversDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("cell: " + ((DriversList)DriversListDataGrid.SelectedItem).IdDriver);
+            DriverEditWindow dew = new DriverEditWindow(((DriversList)DriversListDataGrid.SelectedItem).IdDriver);
+            dew.ShowDialog();
         }
         private void AddPoint_Click(object sender, RoutedEventArgs e)
         {

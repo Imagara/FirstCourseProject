@@ -1,4 +1,4 @@
-﻿<Page x:Class="Kusach.Pages.RoutesListPage"
+﻿<Page x:Class="Kusach.Pages.PointsListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,9 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="419"
       d:DesignWidth="692"
-      Title="RoutesListPage">
-    <Grid 
-        Background="White" 
+      Title="PointsListPage">
+    <Grid
+        Background="White"
         Margin="25">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -28,18 +28,18 @@
             <Button
                 Width="120"
                 Content="Создать"
-                Click="AddRouteButton_Click"/>
+                Click="AddPointButton_Click"/>
             <Button
                 Width="120"
                 Content="Удалить"
-                Click="DeleteRouteButton_Click"/>
+                Click="DeletePointsButton_Click"/>
             <Button
                 Width="120"
                 Content="Обновить"
-                Click="UpdateRoutesButton_Click"/>
+                Click="UpdatePointsButton_Click"/>
         </StackPanel>
         <DataGrid
-            Name="RoutesList" 
+            Name="PointsList" 
             Grid.Row="1"
             AutoGenerateColumns="False" 
             VerticalAlignment="Top" 
@@ -55,13 +55,17 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding IdRoute}" 
+                    Binding="{Binding IdPoint}" 
                     Header="Номер"  
                     Width="70"
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
                     Binding="{Binding Name}" 
                     Header="Название"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding location}" 
+                    Header="Локация"
                     IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>

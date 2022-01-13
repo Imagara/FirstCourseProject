@@ -44,7 +44,8 @@
             AutoGenerateColumns="False" 
             VerticalAlignment="Top" 
             HorizontalAlignment="Left" 
-            CanUserAddRows="false" Width="642">
+            CanUserAddRows="false" 
+            Width="642">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter 

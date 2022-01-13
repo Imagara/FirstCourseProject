@@ -43,5 +43,9 @@ namespace Kusach
         }
         #endregion
 
+        private void PointsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Pages.PointsListPage();
+        }
     }
 }

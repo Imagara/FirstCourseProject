@@ -73,6 +73,9 @@
     <Compile Include="Pages\DriversListPage.xaml.cs">
       <DependentUpon>DriversListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PointsListPage.xaml.cs">
+      <DependentUpon>PointsListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TransportListPage.xaml.cs">
       <DependentUpon>TransportListPage.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\DriversListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PointsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

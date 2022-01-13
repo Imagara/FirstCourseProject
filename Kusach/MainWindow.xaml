@@ -37,6 +37,11 @@
                 Height="40"
                 Click="RoutesButton_Click"/>
                 <Button
+                    Margin="0,0,0,10"
+                Content="Остановки"
+                Height="40"
+                Click="PointsButton_Click"/>
+                <Button
                 Margin="0,0,0,10"
                 Content="Водители"
                 Height="40"

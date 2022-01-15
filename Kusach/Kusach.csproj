@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Functions.cs" />
     <Compile Include="Pages\DispatcherListPage.xaml.cs">
       <DependentUpon>DispatcherListPage.xaml</DependentUpon>
     </Compile>
@@ -125,9 +126,6 @@
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Routes.cs">
-      <DependentUpon>EDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Transport.cs">

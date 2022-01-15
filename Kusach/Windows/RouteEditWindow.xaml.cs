@@ -14,7 +14,7 @@ namespace Kusach.Windows
         {
             InitializeComponent();
             routeId = id;
-            RouteNameBox.Text = cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
+            RouteNameBox.Text = Functions.GetRouteName(routeId);
             Update();
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -5,19 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b8240537cd7c460697af7edf661a78ae" Name="Diagram1">
-        <EntityTypeShape EntityType="gr692_gavModel.Dispatcher" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.Drivers" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.DriversList" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.Points" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.PointsList" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.RouteList" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.Routes" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gr692_gavModel.Transport" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Dispatcher" Width="1.5" PointX="6.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Drivers" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.DriversList" Width="1.5" PointX="0.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Points" Width="1.5" PointX="6.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.PointsList" Width="1.5" PointX="3.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.RouteList" Width="1.5" PointX="3.625" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Routes" Width="1.5" PointX="0.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr692_gavModel.Transport" Width="1.5" PointX="3.625" PointY="6.5" IsExpanded="true" />
         <AssociationConnector Association="gr692_gavModel.FK__RouteList__IdRou__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="gr692_gavModel.FK__DriversLi__IdDri__0C85DE4D" ManuallyRouted="false" />
         <AssociationConnector Association="gr692_gavModel.FK_Drivers_Transport" ManuallyRouted="false" />
-        <AssociationConnector Association="gr692_gavModel.FK__DriversLi__IdRou__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="gr692_gavModel.FK__DriversLi__IdRou__68487DD7" ManuallyRouted="false" ></AssociationConnector>
         <AssociationConnector Association="gr692_gavModel.FK__PointsLis__IdPoi__6477ECF3" ManuallyRouted="false" />
         <AssociationConnector Association="gr692_gavModel.FK__PointsLis__IdRou__66603565" ManuallyRouted="false" />
         <AssociationConnector Association="gr692_gavModel.FK__RouteList__IdRou__628FA481" ManuallyRouted="false" />

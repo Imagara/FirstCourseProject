@@ -32,7 +32,6 @@ namespace Kusach
         public virtual DbSet<PointsList> PointsList { get; set; }
         public virtual DbSet<RouteList> RouteList { get; set; }
         public virtual DbSet<Routes> Routes { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Transport> Transport { get; set; }
     }
 }

@@ -24,6 +24,10 @@ namespace Kusach
                     MessageBox.Show("Данный логин уже занят");
                 else
                 {
+                    if (!Functions.IsValidPhoneNumber(PhoneBox.Text))
+                        MessageBox.Show("Номер телефона введен неверно.");
+                    if (!Functions.IsValidEmail(EmailBox.Text))
+                        MessageBox.Show("email введен неверно.");
                     Dispatcher newUser = new Dispatcher()
                     {
                         IdDispatcher = cnt.db.Dispatcher.Select(p => p.IdDispatcher).DefaultIfEmpty(0).Max() + 1,
@@ -33,7 +37,8 @@ namespace Kusach
                         Name = LNameBox.Text,
                         Patronymic = MNameBox.Text,
                         Birthday = Convert.ToDateTime(BirthdayBox.Text),
-                        PhoneNumber = PhoneBox.Text
+                        PhoneNumber = PhoneBox.Text,
+                        Email = EmailBox.Text
                     };
                     cnt.db.Dispatcher.Add(newUser);
                     cnt.db.SaveChanges();
@@ -43,9 +48,9 @@ namespace Kusach
                     this.Close();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show($"Произошла ошибка. : {ex}");
+                MessageBox.Show($"Произошла ошибка.");
             }
         }
 

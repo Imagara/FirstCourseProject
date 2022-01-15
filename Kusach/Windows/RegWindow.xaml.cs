@@ -20,7 +20,7 @@ namespace Kusach
             {
                 if (logbox.Text == "" || passbox.Text == "")
                     MessageBox.Show("Поля не могут быть пустыми.");
-                else if (cnt.db.Dispatcher.Select(item => item.Login).Contains(logbox.Text))
+                else if (Functions.IsLoginAlreadyTaken(logbox.Text))
                     MessageBox.Show("Данный логин уже занят");
                 else
                 {

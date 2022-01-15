@@ -38,7 +38,20 @@ namespace Kusach
         {
             if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(login + Encrypt.GetHash(password)))
                 return true;
-            return false;
+            else
+                return false;
+        }
+        public static bool IsLoginAlreadyTaken(string login)
+        {
+            return cnt.db.Dispatcher.Select(item => item.Login).Contains(login);
+        }
+        public static string GetNameOfTransport(int transportId)
+        {
+            return cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NameOfTransport).FirstOrDefault();
+        }
+        public static string GetNumberPlate(int transportId)
+        {
+            return cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NumberPlate).FirstOrDefault();
         }
     }
 }

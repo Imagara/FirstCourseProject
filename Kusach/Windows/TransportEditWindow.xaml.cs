@@ -24,8 +24,8 @@ namespace Kusach.Windows
         {
             InitializeComponent();
             transportId = id;
-            NameOfTransportBox.Text = cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NameOfTransport).FirstOrDefault();
-            NumberPlateBox.Text = cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NumberPlate).FirstOrDefault();
+            NameOfTransportBox.Text = Functions.GetNameOfTransport(transportId);
+            NumberPlateBox.Text = Functions.GetNumberPlate(transportId);
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

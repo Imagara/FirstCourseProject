@@ -19,23 +19,16 @@ namespace Kusach
         }
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            try 
+            if(!Functions.IsValidLogAndPass(logbox.Text, passbox.Password))
+                MessageBox.Show("Поля не могут быть пустыми.");
+            if (Functions.LoginCheck(logbox.Text, passbox.Password))
             {
-                if (logbox.Text == "" || passbox.Password == "")
-                    MessageBox.Show("Поля не могут быть пустыми.");
-                else if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(logbox.Text + Encrypt.GetHash(passbox.Password)))
-                {
-                    MainWindow mw = new MainWindow();
-                    mw.Show();
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Неверный логин или пароль");
-            } catch (Exception ex)
-            {
-                MessageBox.Show($"Произошла ошибка. : {ex}");
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
             }
-            
+            else
+                MessageBox.Show("Неверный логин или пароль");
         }
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {

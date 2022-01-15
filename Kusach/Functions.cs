@@ -23,9 +23,22 @@ namespace Kusach
             else
                 return false;
         }
+        public static bool IsValidLogAndPass(string login, string password)
+        {
+            if (login == "" || password == "")
+                return false;
+            else
+                return true;
+        }
         public static string GetRouteName(int routeId)
         {
             return cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
+        }
+        public static bool LoginCheck(string login, string password)
+        {
+            if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(login + Encrypt.GetHash(password)))
+                return true;
+            return false;
         }
     }
 }

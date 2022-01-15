@@ -23,7 +23,14 @@ namespace UnitTests
         {
             int routeId = 1;
             string expected = "Маршрут #1";
-            Assert.AreEqual(Functions.GetRouteName(routeId),expected);
+            Assert.AreEqual(Functions.GetRouteName(routeId), expected);
+        }
+        [TestMethod]
+        public void Password()
+        {
+            string password = "lalka";
+            string expected = "55B6F08EFCE1438F38323E02C7C451FBD1E1AA12";
+            Assert.AreEqual(Encrypt.GetHash(password), expected);
         }
     }
 }

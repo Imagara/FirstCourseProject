@@ -27,19 +27,6 @@
             Margin="105,10,10,5"
             Text="Маршрут: #0"
             FontSize="16"/>
-        <StackPanel
-            Visibility="Hidden"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center" 
-            Margin="254,16,238,9" 
-            Width="300" 
-            Height="40">
-            <Button
-            Content="Удалить точку"/>
-            <Button
-            Content="Добавить точку"/>
-        </StackPanel>
-
         <Grid 
             Grid.Row="1"
             Margin="10,0,10,0">

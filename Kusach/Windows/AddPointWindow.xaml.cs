@@ -22,7 +22,7 @@ namespace Kusach
 
         private void AddPointButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NameBox.Text == "" || LocationBox.Text == "")
+            if (!Functions.IsValidNameAndLocationOfPoint(NameBox.Text, LocationBox.Text))
                 MessageBox.Show("Поля не могут быть пустыми.");
             else
             {

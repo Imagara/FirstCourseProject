@@ -13,8 +13,8 @@ namespace Kusach.Windows
         {
             InitializeComponent();
             pointId = id;
-            NameBox.Text = cnt.db.Points.Where(item => item.IdPoint == pointId).Select(item => item.Name).FirstOrDefault();
-            LocationBox.Text = cnt.db.Points.Where(item => item.IdPoint == pointId).Select(item => item.location).FirstOrDefault();
+            NameBox.Text = Functions.GetNameOfPoint(pointId);
+            LocationBox.Text = Functions.GetLocationOfPoint(pointId);
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

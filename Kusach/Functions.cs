@@ -9,6 +9,7 @@ namespace Kusach
 {
     public class Functions
     {
+        // Валидация номера телефона
         public static bool IsValidPhoneNumber(string phoneNumber)
         {
             foreach (char c in phoneNumber)
@@ -16,6 +17,7 @@ namespace Kusach
                     return false;
             return true;
         }
+        // Валидация электронной почты
         public static bool IsValidEmail(string email)
         {
             if (Regex.IsMatch(email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
@@ -23,17 +25,20 @@ namespace Kusach
             else
                 return false;
         }
+        // Валидация логина и пароля
         public static bool IsValidLogAndPass(string login, string password)
         {
-            if (login == "" || password == "")
-                return false;
-            else
+            if (login != "" && password != "")
                 return true;
+            else
+                return false;
         }
+        // Получение названия маршрута по его id
         public static string GetRouteName(int routeId)
         {
             return cnt.db.Routes.Where(item => item.IdRoute == routeId).Select(item => item.Name).FirstOrDefault();
         }
+        // Проверка на правильность введеных данных при входе
         public static bool LoginCheck(string login, string password)
         {
             if (cnt.db.Dispatcher.Select(item => item.Login + item.Password).Contains(login + Encrypt.GetHash(password)))
@@ -41,17 +46,53 @@ namespace Kusach
             else
                 return false;
         }
+        // Проверка на уникальность логина
         public static bool IsLoginAlreadyTaken(string login)
         {
             return cnt.db.Dispatcher.Select(item => item.Login).Contains(login);
         }
+        // Получение названия транспорта по его id 
         public static string GetNameOfTransport(int transportId)
         {
             return cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NameOfTransport).FirstOrDefault();
         }
+        // Получение номерного знака по его id
         public static string GetNumberPlate(int transportId)
         {
             return cnt.db.Transport.Where(item => item.IdTransport == transportId).Select(item => item.NumberPlate).FirstOrDefault();
+        }
+        // Получение названия точки по ее id
+        public static string GetNameOfPoint(int pointId)
+        {
+            return cnt.db.Points.Where(item => item.IdPoint == pointId).Select(item => item.Name).FirstOrDefault();
+        }
+        // Получение локации точки по ее id
+        public static string GetLocationOfPoint(int pointId)
+        {
+            return cnt.db.Points.Where(item => item.IdPoint == pointId).Select(item => item.location).FirstOrDefault();
+        }
+        // Проверка на валидность название и локацию остановки
+        public static bool IsValidNameAndLocationOfPoint(string name, string location)
+        {
+            if (name != "" && location != "")
+                return true;
+            else
+                return false;
+        }
+        // Проверка на валидность информации о водителе
+        public static bool IsValidInfoAboutDriver(string idTransport, string name, string surname, string patronymic)
+        {
+            if (IsIdOnlyDigits(idTransport) && idTransport != "" && name != "" && surname != "" && patronymic != "")
+                return true;
+            else
+                return false;
+        }
+        public static bool IsIdOnlyDigits (string idTransport)
+        {
+            foreach (char c in idTransport)
+                if (!char.IsDigit(c))
+                    return false;
+            return true;
         }
     }
 }

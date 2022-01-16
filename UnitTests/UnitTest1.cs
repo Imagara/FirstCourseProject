@@ -19,13 +19,6 @@ namespace UnitTests
             Assert.IsTrue(Functions.IsValidEmail(email));
         }
         [TestMethod]
-        public void GetRouteName()
-        {
-            int routeId = 1;
-            string expected = "Маршрут #1";
-            Assert.AreEqual(Functions.GetRouteName(routeId), expected);
-        }
-        [TestMethod]
         public void PasswordEncryptTest()
         {
             string password = "lalka";
@@ -54,18 +47,61 @@ namespace UnitTests
             Assert.IsTrue(Functions.IsLoginAlreadyTaken("qq"));
         }
         [TestMethod]
-        public void GetNameOfTransportTest()
+        public void GetNameOfTransportUsingId()
         {
             int transportId = 1;
             string expected = "Avtobus";
             Assert.AreEqual(Functions.GetNameOfTransport(transportId), expected);
         }
         [TestMethod]
-        public void GetNumberPlateTest()
+        public void GetNumberPlateUsingId()
         {
             int transportId = 1;
             string expected = "AA333AA78";
             Assert.AreEqual(Functions.GetNumberPlate(transportId), expected);
+        }
+        [TestMethod]
+        public void GetRouteNameUsingId()
+        {
+            int routeId = 1;
+            string expected = "Маршрут #1";
+            Assert.AreEqual(Functions.GetRouteName(routeId), expected);
+        }
+        [TestMethod]
+        public void GetNameOfPointUsingId()
+        {
+            int pointId = 1;
+            string expected = "Томская";
+            Assert.AreEqual(Functions.GetNameOfPoint(pointId), expected);
+        }
+        [TestMethod]
+        public void GetLocationOfPointUsingId()
+        {
+            int pointId = 1;
+            string expected = "Томская, 21";
+            Assert.AreEqual(Functions.GetLocationOfPoint(pointId), expected);
+        }
+        [TestMethod]
+        public void IsValidNameAndLocationOfPoint()
+        {
+            string Name = "Томская";
+            string Location = "Томская, 21";
+            Assert.IsTrue(Functions.IsValidNameAndLocationOfPoint(Name, Location));
+        }
+        [TestMethod]
+        public void IsValidInfoAboutDriver()
+        {
+            string IdTransport = "1";
+            string name = "Петр";
+            string surname = "Некрасов";
+            string patronymic = "Антонович";
+            Assert.IsTrue(Functions.IsValidInfoAboutDriver(IdTransport, name, surname, patronymic));
+        }
+        [TestMethod]
+        public void IsIdOnlyDigits()
+        {
+            string IdTransport = "123";
+            Assert.IsTrue(Functions.IsIdOnlyDigits(IdTransport));
         }
     }
 }

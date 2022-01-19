@@ -2,6 +2,6 @@
 {
     class cnt
     {
-        public static EDMEntities db = new EDMEntities();
+        public static EDM db = new EDM();
     }
 }

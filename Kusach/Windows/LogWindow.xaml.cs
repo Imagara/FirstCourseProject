@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 
 namespace Kusach
@@ -21,8 +20,11 @@ namespace Kusach
         {
             if(!Functions.IsValidLogAndPass(logbox.Text, passbox.Password))
                 MessageBox.Show("Поля не могут быть пустыми.");
+            else
             if (Functions.LoginCheck(logbox.Text, passbox.Password))
             {
+                profile.DispatcherId = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).IdDispatcher;
+                profile.Permission = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).Permission;
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();

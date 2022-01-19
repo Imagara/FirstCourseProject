@@ -38,7 +38,8 @@ namespace Kusach
                         Patronymic = MNameBox.Text,
                         Birthday = Convert.ToDateTime(BirthdayBox.Text),
                         PhoneNumber = PhoneBox.Text,
-                        Email = EmailBox.Text
+                        Email = EmailBox.Text,
+                        Permission = 1
                     };
                     cnt.db.Dispatcher.Add(newUser);
                     cnt.db.SaveChanges();

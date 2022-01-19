@@ -1,0 +1,99 @@
+﻿<Page x:Class="Kusach.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kusach.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="419"
+      d:DesignWidth="692"
+      Title="ProfilePage">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="128*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <StackPanel
+                Orientation="Vertical" 
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+                <Image 
+                    HorizontalAlignment="Left" 
+                    Height="150"
+                    Width="150"
+                    VerticalAlignment="Top" 
+                    Margin="0,20,0,20"
+                    Source="/Kusach;component/Images/pesik.png"/>
+            <Button 
+                Content="Изменить"
+                HorizontalAlignment="Left" 
+                Height="30"
+                Width="150"
+                VerticalAlignment="Top"/>
+        </StackPanel>
+            <Border 
+                BorderBrush="Black" 
+                BorderThickness="1"/>
+        </Grid>
+        <Grid
+            Margin="25,25,25,25"
+            Grid.Column = "1">
+            <StackPanel Orientation="Vertical">
+                <Label
+                    Name="NameSurnameBox"
+                    Content="Markus Bodhi"
+                    FontSize="30"
+                    VerticalAlignment="Top" 
+                    Height="55" 
+                    Width="462"/>
+                <Label
+                    Content="День рождения:"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+                <Label
+                    Name="BirthdayBox"
+                    Content="20-20-2020"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+                <Label
+                    Content="Номер телефона:"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+                <Label
+                    Name="PhoneNumBox"
+                    Content="7(999)619-99-99"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+                <Label
+                    Content="Электронная почта:"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+                <Label
+                    Name="EmailBox"
+                    Content="pesik@gmail.com"
+                    FontSize="20"
+                    VerticalAlignment="Top" 
+                    Height="40" 
+                    Width="462"/>
+            </StackPanel>
+            <Border 
+            BorderBrush="Black" 
+            BorderThickness="1"/>
+        </Grid>
+
+
+    </Grid>
+</Page>

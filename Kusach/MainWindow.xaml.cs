@@ -47,5 +47,10 @@ namespace Kusach
         {
             MainFrame.Content = new Pages.PointsListPage();
         }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Pages.ProfilePage();
+        }
     }
 }

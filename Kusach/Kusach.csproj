@@ -67,34 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Functions.cs" />
-    <Compile Include="Pages\DispatcherListPage.xaml.cs">
-      <DependentUpon>DispatcherListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\DriversListPage.xaml.cs">
-      <DependentUpon>DriversListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PointsListPage.xaml.cs">
-      <DependentUpon>PointsListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TransportListPage.xaml.cs">
-      <DependentUpon>TransportListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TestWindow.xaml.cs">
-      <DependentUpon>TestWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddDriverWindow.xaml.cs">
-      <DependentUpon>AddDriverWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddDriverToRouteWindow.xaml.cs">
-      <DependentUpon>AddDriverToRouteWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddPointToRouteWindow.xaml.cs">
-      <DependentUpon>AddPointToRouteWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddPointWindow.xaml.cs">
-      <DependentUpon>AddPointWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dispatcher.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
@@ -119,20 +91,52 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
+    <Compile Include="Pages\DispatcherListPage.xaml.cs">
+      <DependentUpon>DispatcherListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DriversListPage.xaml.cs">
+      <DependentUpon>DriversListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PointsListPage.xaml.cs">
+      <DependentUpon>PointsListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransportListPage.xaml.cs">
+      <DependentUpon>TransportListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Points.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Compile Include="PointsList.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="profile.cs" />
     <Compile Include="RouteList.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Routes.cs">
       <DependentUpon>EDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>EDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Transport.cs">
       <DependentUpon>EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddDriverWindow.xaml.cs">
+      <DependentUpon>AddDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddDriverToRouteWindow.xaml.cs">
+      <DependentUpon>AddDriverToRouteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddPointToRouteWindow.xaml.cs">
+      <DependentUpon>AddPointToRouteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddPointWindow.xaml.cs">
+      <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddRouteWindow.xaml.cs">
       <DependentUpon>AddRouteWindow.xaml</DependentUpon>
@@ -178,11 +182,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TransportListPage.xaml">
+    <Page Include="Pages\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestWindow.xaml">
+    <Page Include="Pages\TransportListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,14 +291,15 @@
   <ItemGroup>
     <Content Include="EDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EDM.edmx</DependentUpon>
       <LastGenOutput>EDM.Context.cs</LastGenOutput>
+      <DependentUpon>EDM.edmx</DependentUpon>
     </Content>
     <Content Include="EDM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDM.edmx</DependentUpon>
       <LastGenOutput>EDM.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\pesik.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

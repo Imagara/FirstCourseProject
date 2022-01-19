@@ -26,13 +26,10 @@
                 Text="Поиск..." 
                 Width="120"/>
             <Button
+                Name="CreateButton"
                 Width="120"
                 Content="Создать"
                 Click="AddTransportButton_Click"/>
-            <Button
-                Width="120"
-                Content="Удалить"
-                Click="DeleteTransportButton_Click"/>
             <Button
                 Width="120"
                 Content="Обновить"

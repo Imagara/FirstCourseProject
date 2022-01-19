@@ -10,8 +10,11 @@ namespace Kusach
         public MainWindow()
         {
             InitializeComponent();
+            if (profile.Permission != 0)
+            {
+                DispatchersButton.Visibility = Visibility.Collapsed;
+            }
         }
-        
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             LogWindow lw = new LogWindow();

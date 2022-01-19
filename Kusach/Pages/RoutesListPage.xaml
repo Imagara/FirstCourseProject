@@ -26,13 +26,10 @@
                 Text="Поиск..." 
                 Width="120"/>
             <Button
+                Name="CreateButton"
                 Width="120"
                 Content="Создать"
                 Click="AddRouteButton_Click"/>
-            <Button
-                Width="120"
-                Content="Удалить"
-                Click="DeleteRouteButton_Click"/>
             <Button
                 Width="120"
                 Content="Обновить"

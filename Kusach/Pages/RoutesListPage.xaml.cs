@@ -14,11 +14,16 @@ namespace Kusach.Pages
         {
             InitializeComponent();
             RoutesList.ItemsSource = cnt.db.Routes.ToList();
+            if (profile.Permission != 0)
+                CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((Routes)RoutesList.SelectedItem).IdRoute);
-            rew.Show();
+            if (profile.Permission == 0)
+            {
+                Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((Routes)RoutesList.SelectedItem).IdRoute);
+                rew.Show();
+            }
         }
 
         #region Поиск
@@ -45,12 +50,6 @@ namespace Kusach.Pages
             AddRouteWindow arw = new AddRouteWindow();
             arw.Show();
         }
-
-        private void DeleteRouteButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void UpdateRoutesButton_Click(object sender, RoutedEventArgs e)
         {
             RoutesList.ItemsSource = cnt.db.Routes.ToList();

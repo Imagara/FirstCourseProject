@@ -8,7 +8,6 @@
       d:DesignHeight="419"
       d:DesignWidth="692"
       Title="ProfilePage">
-
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="45*"/>
@@ -21,18 +20,20 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
                 <Image 
+                    Name="ProfileImg"
                     HorizontalAlignment="Left" 
                     Height="150"
                     Width="150"
                     VerticalAlignment="Top" 
                     Margin="0,20,0,20"
-                    Source="/Kusach;component/Images/pesik.png"/>
+                    Source="/Kusach;component/Images/StandartImage.png"/>
             <Button 
                 Content="Изменить"
                 HorizontalAlignment="Left" 
                 Height="30"
                 Width="150"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top"
+                Click="EditImageButton_Click"/>
         </StackPanel>
             <Border 
                 BorderBrush="Black" 

@@ -43,6 +43,8 @@ namespace Kusach
                     };
                     cnt.db.Dispatcher.Add(newUser);
                     cnt.db.SaveChanges();
+                    profile.DispatcherId = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).IdDispatcher;
+                    profile.Permission = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).Permission;
                     MessageBox.Show("Вы успешно зарегистрировались");
                     MainWindow mw = new MainWindow();
                     mw.Show();

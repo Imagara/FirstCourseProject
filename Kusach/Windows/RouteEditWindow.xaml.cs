@@ -15,17 +15,32 @@ namespace Kusach.Windows
             InitializeComponent();
             routeId = id;
             RouteNameBox.Text = Functions.GetRouteName(routeId);
+            if (profile.Permission != 0)
+            {
+                RouteNameBox.IsEnabled = false;
+                AddButton.Visibility = Visibility.Collapsed;
+                CreateButton.Visibility = Visibility.Collapsed;
+                RemoveButton.Visibility = Visibility.Collapsed;
+                AddButtonDrivers.Visibility = Visibility.Collapsed;
+                CreateButtonDrivers.Visibility = Visibility.Collapsed;
+            }
             Update();
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PointEditWindow pew = new PointEditWindow(((PointsList)PointsListDataGrid.SelectedItem).IdPoint);
-            pew.ShowDialog();
+            if (profile.Permission == 0)
+            {
+                PointEditWindow pew = new PointEditWindow(((PointsList)PointsListDataGrid.SelectedItem).IdPoint);
+                pew.ShowDialog();
+            }
         }
         private void DriversDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DriverEditWindow dew = new DriverEditWindow(((DriversList)DriversListDataGrid.SelectedItem).IdDriver);
-            dew.ShowDialog();
+            if (profile.Permission == 0)
+            {
+                DriverEditWindow dew = new DriverEditWindow(((DriversList)DriversListDataGrid.SelectedItem).IdDriver);
+                dew.ShowDialog();
+            }
         }
         private void AddPoint_Click(object sender, RoutedEventArgs e)
         {
@@ -70,7 +85,7 @@ namespace Kusach.Windows
                 {
                     PointsList newAddPointToRoute = new PointsList()
                     {
-                        Id = cnt.db.PointsList.Select(p => p.Id).DefaultIfEmpty(0).Max()+1,
+                        Id = cnt.db.PointsList.Select(p => p.Id).DefaultIfEmpty(0).Max() + 1,
                         IdPoint = pointId,
                         IdRoute = routeId
                     };

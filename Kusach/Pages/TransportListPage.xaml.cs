@@ -14,15 +14,20 @@ namespace Kusach.Pages
         {
             InitializeComponent();
             TransportList.ItemsSource = cnt.db.Transport.ToList();
+            if (profile.Permission != 0)
+                CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.TransportEditWindow tew = new Windows.TransportEditWindow(((Transport)TransportList.SelectedItem).IdTransport);
-            tew.Show();
+            if (profile.Permission == 0)
+            {
+                Windows.TransportEditWindow tew = new Windows.TransportEditWindow(((Transport)TransportList.SelectedItem).IdTransport);
+                tew.Show();
+            }
         }
 
-        #region Поиск
-        private void SearchBoxPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+            #region Поиск
+            private void SearchBoxPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (SearchBox.Text == "Поиск...")
                 SearchBox.Text = "";
@@ -45,12 +50,6 @@ namespace Kusach.Pages
             AddTransportWindow atw = new AddTransportWindow();
             atw.Show();
         }
-
-        private void DeleteTransportButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void UpdateTransportButton_Click(object sender, RoutedEventArgs e)
         {
             TransportList.ItemsSource = cnt.db.Transport.ToList();

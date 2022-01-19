@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EDMModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище EDMModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Dispatcher">
           <Key>
             <PropertyRef Name="IdDispatcher" />
@@ -19,6 +19,7 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Permission" Type="int" Nullable="false" />
+          <Property Name="ProfileImgSource" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Drivers">
           <Key>
@@ -210,8 +211,7 @@
             <End Role="Drivers" EntitySet="Drivers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EDMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -230,6 +230,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Permission" Type="Int32" Nullable="false" />
           <NavigationProperty Name="RouteList" Relationship="Self.FK__RouteList__IdRou__6383C8BA" FromRole="Dispatcher" ToRole="RouteList" />
+          <Property Name="ProfileImgSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Drivers">
           <Key>
@@ -443,6 +444,7 @@
           <EntitySetMapping Name="Dispatcher">
             <EntityTypeMapping TypeName="EDMModel.Dispatcher">
               <MappingFragment StoreEntitySet="Dispatcher">
+                <ScalarProperty Name="ProfileImgSource" ColumnName="ProfileImgSource" />
                 <ScalarProperty Name="IdDispatcher" ColumnName="IdDispatcher" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

@@ -24,6 +24,8 @@ namespace Kusach.Pages
         {
             InitializeComponent();
             DispatcherList.ItemsSource = cnt.db.Dispatcher.ToList();
+            if (profile.Permission != 0)
+                CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -52,11 +54,6 @@ namespace Kusach.Pages
         private void AddDispatcherButton_Click(object sender, RoutedEventArgs e)
         {
             
-        }
-
-        private void DeleteDispatcherButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void UpdateDispatcherButton_Click(object sender, RoutedEventArgs e)

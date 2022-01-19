@@ -89,6 +89,7 @@
                                 Click="Update_Click">
                             </Button>
                             <Button
+                                Name="CreateButton"
                                 Content="Создать"
                                 Width="90"
                                 Height="30"
@@ -96,6 +97,7 @@
                                 Click="AddPoint_Click">
                             </Button>
                             <Button
+                                Name="AddButton"
                                 Content="Добавить"
                                 Width="90"
                                 Height="30"
@@ -103,6 +105,7 @@
                                 Click="AddFromListPoint_Click">
                             </Button>
                             <Button
+                                Name="RemoveButton"
                                 Visibility="Visible"
                                 Content="Удалить"
                                 Grid.Row="1"
@@ -177,6 +180,7 @@
                                 Click="Update_Click">
                             </Button>
                             <Button
+                                Name="CreateButtonDrivers"
                                 Content="Создать"
                                 Width="90"
                                 Height="30"
@@ -184,6 +188,7 @@
                                 Click="AddDriver_Click">
                             </Button>
                             <Button
+                                Name="AddButtonDrivers"
                                 Content="Добавить"
                                 Width="90"
                                 Height="30"

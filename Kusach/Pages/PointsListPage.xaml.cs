@@ -24,11 +24,16 @@ namespace Kusach.Pages
         {
             InitializeComponent();
             PointsList.ItemsSource = cnt.db.Points.ToList();
+            if (profile.Permission != 0)
+                CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.PointEditWindow dew = new Windows.PointEditWindow(((Points)PointsList.SelectedItem).IdPoint);
-            dew.Show();
+            if (profile.Permission == 0)
+            {
+                Windows.PointEditWindow dew = new Windows.PointEditWindow(((Points)PointsList.SelectedItem).IdPoint);
+                dew.Show();
+            }
         }
 
         #region Поиск
@@ -54,11 +59,6 @@ namespace Kusach.Pages
         {
             AddPointWindow adw = new AddPointWindow();
             adw.Show();
-        }
-
-        private void DeletePointsButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void UpdatePointsButton_Click(object sender, RoutedEventArgs e)

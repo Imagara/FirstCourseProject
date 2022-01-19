@@ -59,6 +59,7 @@
                 Height="40"
                 Click="VehButton_Click"/>
                 <Button
+                Name="DispatchersButton"
                 Content="Пользователи"
                 Height="40"
                 Click="UsersButton_Click"/>

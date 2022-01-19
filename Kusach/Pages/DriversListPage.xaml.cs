@@ -14,11 +14,16 @@ namespace Kusach.Pages
         {
             InitializeComponent();
             DriversList.ItemsSource = cnt.db.Drivers.ToList();
+            if (profile.Permission != 0)
+                CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Drivers)DriversList.SelectedItem).IdDriver);
-            dew.Show();
+            if (profile.Permission == 0)
+            {
+                Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Drivers)DriversList.SelectedItem).IdDriver);
+                dew.Show();
+            }
         }
 
         #region Поиск
@@ -44,11 +49,6 @@ namespace Kusach.Pages
         {
             AddDriverWindow adw = new AddDriverWindow();
             adw.Show();
-        }
-
-        private void DeleteDriversButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void UpdateDriversButton_Click(object sender, RoutedEventArgs e)

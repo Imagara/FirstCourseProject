@@ -29,7 +29,11 @@ namespace Kusach.Pages
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
+            if (profile.Permission == 0)
+            {
+                Windows.DispatcherEditWindow dew = new Windows.DispatcherEditWindow(((Dispatcher)DispatcherList.SelectedItem).IdDispatcher);
+                dew.ShowDialog();
+            }
         }
 
         #region Поиск

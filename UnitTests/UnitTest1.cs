@@ -101,7 +101,7 @@ namespace UnitTests
         public void IsIdOnlyDigits()
         {
             string IdTransport = "123";
-            Assert.IsTrue(Functions.IsIdOnlyDigits(IdTransport));
+            Assert.IsTrue(Functions.IsOnlyDigits(IdTransport));
         }
     }
 }

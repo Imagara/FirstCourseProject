@@ -146,6 +146,9 @@
     </Compile>
     <Compile Include="cnt.cs" />
     <Compile Include="Encrypt.cs" />
+    <Compile Include="Windows\DispatcherEditWindow.xaml.cs">
+      <DependentUpon>DispatcherEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\LogWindow.xaml.cs">
       <DependentUpon>LogWindow.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddTransportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DispatcherEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

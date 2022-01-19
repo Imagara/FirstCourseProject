@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kusach.Pages
 {
@@ -34,21 +26,13 @@ namespace Kusach.Pages
         }
         private void EditImageButton_Click(object sender, RoutedEventArgs e)
         {
-            // Создаем OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            // Устанавливаем фильтры и стандартное расширение файла
-            dlg.DefaultExt = ".png";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
-
-            // Отображаем OpenFileDialog
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // Получаем и устанавливаем новое изображение 
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".png";
+            ofd.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
+            Nullable<bool> result = ofd.ShowDialog();
             if (result == true)
             {
-                // Open document 
-                string filename = dlg.FileName;
+                string filename = ofd.FileName;
                 ProfileImg.Source = new BitmapImage(new Uri(filename));
                 Dispatcher dispatcher = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).FirstOrDefault();
                 dispatcher.ProfileImgSource = filename;

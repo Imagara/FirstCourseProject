@@ -82,14 +82,14 @@ namespace Kusach
         // Проверка на валидность информации о водителе
         public static bool IsValidInfoAboutDriver(string idTransport, string name, string surname, string patronymic)
         {
-            if (IsIdOnlyDigits(idTransport) && idTransport != "" && name != "" && surname != "" && patronymic != "")
+            if (IsOnlyDigits(idTransport) && idTransport != "" && name != "" && surname != "" && patronymic != "")
                 return true;
             else
                 return false;
         }
-        public static bool IsIdOnlyDigits (string idTransport)
+        public static bool IsOnlyDigits (string str)
         {
-            foreach (char c in idTransport)
+            foreach (char c in str)
                 if (!char.IsDigit(c))
                     return false;
             return true;

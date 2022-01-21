@@ -19,10 +19,10 @@ namespace Kusach.Windows
             {
                 RouteNameBox.IsEnabled = false;
                 AddButton.Visibility = Visibility.Collapsed;
-                CreateButton.Visibility = Visibility.Collapsed;
                 RemoveButton.Visibility = Visibility.Collapsed;
                 AddButtonDrivers.Visibility = Visibility.Collapsed;
                 CreateButtonDrivers.Visibility = Visibility.Collapsed;
+                RemoveDriver.Visibility = Visibility.Collapsed;
             }
             Update();
         }
@@ -41,11 +41,6 @@ namespace Kusach.Windows
                 DriverEditWindow dew = new DriverEditWindow(((DriversList)DriversListDataGrid.SelectedItem).IdDriver);
                 dew.ShowDialog();
             }
-        }
-        private void AddPoint_Click(object sender, RoutedEventArgs e)
-        {
-            AddPointWindow apw = new AddPointWindow(routeId);
-            apw.ShowDialog();
         }
         private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
@@ -76,7 +71,7 @@ namespace Kusach.Windows
 
         private void AddFromListPoint_Click(object sender, RoutedEventArgs e)
         {
-            AddPointToRouteWindow aptrw = new AddPointToRouteWindow();
+            AddPointToRouteWindow aptrw = new AddPointToRouteWindow(routeId);
             aptrw.ShowDialog();
             int pointId = aptrw.pointId;
             if (pointId != -1)
@@ -99,6 +94,7 @@ namespace Kusach.Windows
                     MessageBox.Show("Ошибка добавления записи");
                 }
             }
+            Update();
         }
 
         private void AddFromListDriver_Click(object sender, RoutedEventArgs e)
@@ -126,6 +122,7 @@ namespace Kusach.Windows
                     MessageBox.Show("Ошибка добавления записи");
                 }
             }
+            Update();
         }
 
         void Update()
@@ -136,6 +133,20 @@ namespace Kusach.Windows
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             Update();
+        }
+
+        private void RemoveDriver_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                cnt.db.DriversList.Remove(cnt.db.DriversList.Where(item => item.IdRoute == routeId && item.IdDriver == ((DriversList)DriversListDataGrid.SelectedItem).IdDriver).FirstOrDefault());
+                cnt.db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка удаления записи.");
+            }
         }
     }
 }

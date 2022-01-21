@@ -57,13 +57,26 @@
                     IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button 
+        <StackPanel 
             Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button 
             Content="Отмена"
             Width="90"
             Height="35"
             HorizontalAlignment="Center"
-            Click="BackButton_Click"/>
+            Click="BackButton_Click"
+            Margin="0,0,10,0"/>
+            <Button 
+            Name="CreateButton"
+            Content="Создать"
+            Width="90"
+            Height="35"
+            HorizontalAlignment="Center"
+            Click="CreateButton_Click"/>
+        </StackPanel>
         <Border 
             Grid.RowSpan="2"
             BorderBrush="Black" 

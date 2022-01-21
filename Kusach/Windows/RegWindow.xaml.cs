@@ -25,9 +25,15 @@ namespace Kusach
                 else
                 {
                     if (!Functions.IsValidPhoneNumber(PhoneBox.Text))
+                    {
                         MessageBox.Show("Номер телефона введен неверно.");
+                        return;
+                    }
                     if (!Functions.IsValidEmail(EmailBox.Text))
+                    {
                         MessageBox.Show("email введен неверно.");
+                        return;
+                    }
                     Dispatcher newUser = new Dispatcher()
                     {
                         IdDispatcher = cnt.db.Dispatcher.Select(p => p.IdDispatcher).DefaultIfEmpty(0).Max() + 1,
@@ -39,8 +45,11 @@ namespace Kusach
                         Birthday = Convert.ToDateTime(BirthdayBox.Text),
                         PhoneNumber = PhoneBox.Text,
                         Email = EmailBox.Text,
-                        Permission = 1
                     };
+                    if (cnt.db.Dispatcher.Count() == 0)
+                        newUser.Permission = 0;
+                    else
+                        newUser.Permission = 1;
                     cnt.db.Dispatcher.Add(newUser);
                     cnt.db.SaveChanges();
                     profile.DispatcherId = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).IdDispatcher;

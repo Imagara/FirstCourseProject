@@ -9,10 +9,11 @@ namespace Kusach.Windows
     /// </summary>
     public partial class AddDriverToRouteWindow : Window
     {
-        public int driverId = -1;
+        public int driverId = -1; int routeId;
         public AddDriverToRouteWindow(int id)
         {
             InitializeComponent();
+            routeId = id;
             DriversListDataGrid.ItemsSource = cnt.db.Drivers.ToList();
         }
         private void PointsDataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -23,6 +24,12 @@ namespace Kusach.Windows
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddDriverWindow adw = new AddDriverWindow(routeId);
+            adw.ShowDialog();
             this.Close();
         }
     }

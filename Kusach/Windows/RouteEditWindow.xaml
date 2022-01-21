@@ -89,14 +89,6 @@
                                 Click="Update_Click">
                             </Button>
                             <Button
-                                Name="CreateButton"
-                                Content="Создать"
-                                Width="90"
-                                Height="30"
-                                Margin="0,0,10,0"
-                                Click="AddPoint_Click">
-                            </Button>
-                            <Button
                                 Name="AddButton"
                                 Content="Добавить"
                                 Width="90"
@@ -181,6 +173,7 @@
                             </Button>
                             <Button
                                 Name="CreateButtonDrivers"
+                                Visibility="Collapsed"
                                 Content="Создать"
                                 Width="90"
                                 Height="30"
@@ -196,11 +189,12 @@
                                 Click="AddFromListDriver_Click">
                             </Button>
                             <Button
-                                Visibility="Hidden"
+                                Name="RemoveDriver"
                                 Content="Удалить"
                                 Grid.Row="1"
                                 Width="90"
-                                Height="30">
+                                Height="30"
+                                Click="RemoveDriver_Click">
                             </Button>
                         </StackPanel>
                     </Grid>

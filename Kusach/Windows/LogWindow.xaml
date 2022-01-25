@@ -11,53 +11,59 @@
         Height="350" Width="600" 
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label 
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="99"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <Label 
             Content="Логин:" 
             HorizontalAlignment="Left" 
-            Margin="180,45,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
-        <TextBox 
+            <TextBox 
             Name="logbox" 
             HorizontalAlignment="Left" 
-            Margin="179,85,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
-        <Label 
+            <Label 
             Content="Пароль:" 
             HorizontalAlignment="Left" 
-            Margin="180,125,0,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
-        <PasswordBox 
+            <PasswordBox 
             Name="passbox" 
             HorizontalAlignment="Left" 
-            Margin="179,165,0,0"
             VerticalAlignment="Top" 
             Height="40" 
             Width="240"/>
-        <Button 
-            x:Name="LogButton" 
-            Content="Вход" 
-            HorizontalAlignment="Left" 
-            Margin="324,228,0,0" 
-            VerticalAlignment="Top" 
-            Width="150" 
-            Click="LogButton_Click" 
-            IsDefault="True"
-            Height="40"/>
-        <Button 
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button 
             x:Name="RegButton" 
-            Content="Регистрация" 
-            HorizontalAlignment="Left"
-            Margin="123,228,0,0" 
-            VerticalAlignment="Top" 
+            Content="Регистрация"
+            Height="40" 
             Width="150" 
-            Click="RegButton_Click" 
-            Height="40"/>
+            Margin="0,0,30,0"
+            Click="RegButton_Click"/>
+            <Button 
+            x:Name="LogButton" 
+            Content="Вход"
+            Height="40" 
+            Width="150" 
+            Click="LogButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

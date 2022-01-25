@@ -15,6 +15,8 @@ namespace Kusach
             foreach (char c in phoneNumber)
                 if (!char.IsDigit(c))
                     return false;
+            if (phoneNumber.Length != 10)
+                return false;
             return true;
         }
         // Валидация электронной почты

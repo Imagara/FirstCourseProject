@@ -27,6 +27,11 @@ namespace Kusach
             else
                 return false;
         }
+        // Валидация дня рождения
+        public static bool IsValidDateOfBirthday(string Date)
+        {
+            return true;
+        }
         // Валидация логина и пароля
         public static bool IsValidLogAndPass(string login, string password)
         {
@@ -89,7 +94,7 @@ namespace Kusach
             else
                 return false;
         }
-        public static bool IsOnlyDigits (string str)
+        public static bool IsOnlyDigits(string str)
         {
             foreach (char c in str)
                 if (!char.IsDigit(c))

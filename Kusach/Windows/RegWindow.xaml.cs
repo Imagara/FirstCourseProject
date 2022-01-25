@@ -22,18 +22,14 @@ namespace Kusach
                     MessageBox.Show("Поля не могут быть пустыми.");
                 else if (Functions.IsLoginAlreadyTaken(logbox.Text))
                     MessageBox.Show("Данный логин уже занят");
+                else if (!Functions.IsValidPhoneNumber(PhoneBox.Text))
+                    MessageBox.Show("Номер телефона введен неверно.");
+                else if (!Functions.IsValidEmail(EmailBox.Text))
+                    MessageBox.Show("Email введен неверно."); 
+                else if (!Functions.IsValidDateOfBirthday(BirthdayBox.Text))
+                    MessageBox.Show("День рождения введен неверно.");
                 else
                 {
-                    if (!Functions.IsValidPhoneNumber(PhoneBox.Text))
-                    {
-                        MessageBox.Show("Номер телефона введен неверно.");
-                        return;
-                    }
-                    if (!Functions.IsValidEmail(EmailBox.Text))
-                    {
-                        MessageBox.Show("email введен неверно.");
-                        return;
-                    }
                     Dispatcher newUser = new Dispatcher()
                     {
                         IdDispatcher = cnt.db.Dispatcher.Select(p => p.IdDispatcher).DefaultIfEmpty(0).Max() + 1,

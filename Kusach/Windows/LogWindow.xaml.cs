@@ -20,8 +20,9 @@ namespace Kusach
         {
             if(!Functions.IsValidLogAndPass(logbox.Text, passbox.Password))
                 MessageBox.Show("Поля не могут быть пустыми.");
+            else if (!Functions.LoginCheck(logbox.Text, passbox.Password))
+                MessageBox.Show("Неверный логин или пароль");
             else
-            if (Functions.LoginCheck(logbox.Text, passbox.Password))
             {
                 profile.DispatcherId = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).IdDispatcher;
                 profile.Permission = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).Permission;
@@ -29,8 +30,7 @@ namespace Kusach
                 mw.Show();
                 this.Close();
             }
-            else
-                MessageBox.Show("Неверный логин или пароль");
+                
         }
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {

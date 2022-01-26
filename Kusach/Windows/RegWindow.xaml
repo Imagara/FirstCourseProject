@@ -90,7 +90,7 @@
             Height="40" 
             Width="240"/>
             <Label 
-            Content="День рождения:" 
+            Content="Дата рождения:" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="40" 

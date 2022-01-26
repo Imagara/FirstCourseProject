@@ -9,14 +9,21 @@ namespace UnitTests
         [TestMethod]
         public void IsValidPhoneNumber()
         {
-            string phoneNum = "9999194949";
-            Assert.IsTrue(Functions.IsValidPhoneNumber(phoneNum));
+            Assert.IsTrue(Functions.IsValidPhoneNumber("9999194949"));
+            Assert.IsTrue(Functions.IsValidPhoneNumber("9994443322"));
+            Assert.IsFalse(Functions.IsValidPhoneNumber("99991949499"));
+            Assert.IsFalse(Functions.IsValidPhoneNumber("999919494"));
+            Assert.IsFalse(Functions.IsValidPhoneNumber("My phone number"));
+            Assert.IsFalse(Functions.IsValidPhoneNumber(""));
         }
         [TestMethod]
         public void IsValidEmail()
         {
-            string email = "lalka@gmail.com";
-            Assert.IsTrue(Functions.IsValidEmail(email));
+            Assert.IsTrue(Functions.IsValidEmail("user@gmail.com"));
+            Assert.IsTrue(Functions.IsValidEmail("user@mail.ru"));
+            Assert.IsFalse(Functions.IsValidEmail("usergmail.com"));
+            Assert.IsFalse(Functions.IsValidEmail("usergmailcom"));
+            Assert.IsFalse(Functions.IsValidEmail(""));
         }
         [TestMethod]
         public void PasswordEncryptTest()
@@ -45,6 +52,9 @@ namespace UnitTests
         public void IsLoginAlreadyTaken()
         {
             Assert.IsTrue(Functions.IsLoginAlreadyTaken("qq"));
+            Assert.IsFalse(Functions.IsLoginAlreadyTaken("user23"));
+            Assert.IsFalse(Functions.IsLoginAlreadyTaken("F"));
+            Assert.IsFalse(Functions.IsLoginAlreadyTaken(""));
         }
         [TestMethod]
         public void GetNameOfTransportUsingId()
@@ -100,8 +110,16 @@ namespace UnitTests
         [TestMethod]
         public void IsIdOnlyDigits()
         {
-            string IdTransport = "123";
-            Assert.IsTrue(Functions.IsOnlyDigits(IdTransport));
+            string Id = "123";
+            Assert.IsTrue(Functions.IsOnlyDigits(Id));
+        }
+        [TestMethod]
+        public void IsValidDateOfBirthday()
+        {
+            DateTime date1 =  new DateTime(2000,05,02);
+            DateTime date2 =  new DateTime(2025,02,01);
+            Assert.IsTrue(Functions.IsValidDateOfBirthday(date1));
+            Assert.IsFalse(Functions.IsValidDateOfBirthday(date2));
         }
     }
 }

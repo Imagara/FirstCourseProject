@@ -26,7 +26,7 @@ namespace Kusach
                     MessageBox.Show("Номер телефона введен неверно.");
                 else if (!Functions.IsValidEmail(EmailBox.Text))
                     MessageBox.Show("Email введен неверно."); 
-                else if (!Functions.IsValidDateOfBirthday(BirthdayBox.Text))
+                else if (!Functions.IsValidDateOfBirthday(Convert.ToDateTime(BirthdayBox.Text)))
                     MessageBox.Show("День рождения введен неверно.");
                 else
                 {

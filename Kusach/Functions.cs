@@ -29,9 +29,12 @@ namespace Kusach
                 return false;
         }
         // Валидация дня рождения
-        public static bool IsValidDateOfBirthday(string Date)
+        public static bool IsValidDateOfBirthday(DateTime Date)
         {
-            return true;
+            if (Date > DateTime.Now)
+                return false;
+            else
+                return true;
         }
         // Валидация логина и пароля
         public static bool IsValidLogAndPass(string login, string password)

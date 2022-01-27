@@ -62,6 +62,16 @@ namespace Kusach
         {
             return cnt.db.Dispatcher.Select(item => item.Login).Contains(login);
         }
+        // Проверка на уникальность номера телефона
+        public static bool IsPhoneNumberAlreadyTaken(string PhoneNum)
+        {
+            return cnt.db.Dispatcher.Select(item => item.PhoneNumber).Contains(PhoneNum);
+        }
+        // Проверка на уникальность электронной почты
+        public static bool IsEmailAlreadyTaken(string Email)
+        {
+            return cnt.db.Dispatcher.Select(item => item.Email).Contains(Email);
+        }
         // Получение названия транспорта по его id 
         public static string GetNameOfTransport(int transportId)
         {

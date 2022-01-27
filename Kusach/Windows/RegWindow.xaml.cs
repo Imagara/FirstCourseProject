@@ -24,10 +24,14 @@ namespace Kusach
                     MessageBox.Show("Данный логин уже занят");
                 else if (!Functions.IsValidPhoneNumber(PhoneBox.Text))
                     MessageBox.Show("Номер телефона введен неверно.");
+                else if (Functions.IsPhoneNumberAlreadyTaken(PhoneBox.Text))
+                    MessageBox.Show("Данный номер телефона уже используется");
                 else if (!Functions.IsValidEmail(EmailBox.Text))
-                    MessageBox.Show("Email введен неверно."); 
+                    MessageBox.Show("Email введен неверно.");
+                else if (Functions.IsEmailAlreadyTaken(EmailBox.Text))
+                    MessageBox.Show("Данный email уже используется.");
                 else if (!Functions.IsValidDateOfBirthday(Convert.ToDateTime(BirthdayBox.Text)))
-                    MessageBox.Show("День рождения введен неверно.");
+                    MessageBox.Show("Дата рождения введена неверно.");
                 else
                 {
                     Dispatcher newUser = new Dispatcher()

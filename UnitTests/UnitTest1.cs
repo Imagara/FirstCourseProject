@@ -121,5 +121,24 @@ namespace UnitTests
             Assert.IsTrue(Functions.IsValidDateOfBirthday(date1));
             Assert.IsFalse(Functions.IsValidDateOfBirthday(date2));
         }
+        [TestMethod]
+        public void IsPhoneNumberAlreadyTaken()
+        {
+            Assert.IsTrue(Functions.IsPhoneNumberAlreadyTaken("7776006060"));
+            Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006061"));
+            Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006062"));
+            Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006063"));
+            Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006064"));
+            Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006065"));
+        }
+        [TestMethod]
+        public void IsEmailAlreadyTaken()
+        {
+            Assert.IsTrue(Functions.IsEmailAlreadyTaken("filaks@gmail.com"));
+            Assert.IsFalse(Functions.IsEmailAlreadyTaken("filaks@mail.ru"));
+            Assert.IsFalse(Functions.IsEmailAlreadyTaken("cute@gmail.com"));
+            Assert.IsFalse(Functions.IsEmailAlreadyTaken("user@gmail.com"));
+            Assert.IsFalse(Functions.IsEmailAlreadyTaken("simpleEmail@sibmail.com"));
+        }
     }
 }

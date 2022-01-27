@@ -19,7 +19,7 @@ namespace Kusach
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
             if(!Functions.IsValidLogAndPass(logbox.Text, passbox.Password))
-                MessageBox.Show("Поля не могут быть пустыми.");
+                MessageBox.Show("Поля не могут быть пустыми");
             else if (!Functions.LoginCheck(logbox.Text, passbox.Password))
                 MessageBox.Show("Неверный логин или пароль");
             else

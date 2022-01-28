@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kusach"
         mc:Ignorable="d"
-        Title="Главное меню" 
+        Title="Главное окно" 
         Loaded="OnLoad"
         Height="450" 
         Width="800"

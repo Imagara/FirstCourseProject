@@ -52,11 +52,6 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding IdTransport}" 
-                    Header="Номер"  
-                    Width="70"
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
                     Binding="{Binding NameOfTransport}" 
                     Header="Название TC"
                     IsReadOnly="True"/>

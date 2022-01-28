@@ -28,8 +28,8 @@ namespace UnitTests
         [TestMethod]
         public void PasswordEncryptTest()
         {
-            string password = "lalka";
-            string expected = "55B6F08EFCE1438F38323E02C7C451FBD1E1AA12";
+            string password = "qq";
+            string expected = "BED4EB698C6EEEA7F1DDF5397D480D3F2C0FB938";
             Assert.AreEqual(Encrypt.GetHash(password), expected);
         }
         [TestMethod]
@@ -108,7 +108,7 @@ namespace UnitTests
             Assert.IsTrue(Functions.IsValidInfoAboutDriver(IdTransport, name, surname, patronymic));
         }
         [TestMethod]
-        public void IsIdOnlyDigits()
+        public void IsOnlyDigits()
         {
             string Id = "123";
             Assert.IsTrue(Functions.IsOnlyDigits(Id));

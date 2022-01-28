@@ -52,17 +52,8 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding IdDispatcher}" 
-                    Header="Номер"  
-                    Width="50" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
                     Binding="{Binding Login}" 
                     Header="Логин" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
-                    Binding="{Binding Password}" 
-                    Header="Пароль" 
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
                     Binding="{Binding Surname}" 

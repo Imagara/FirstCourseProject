@@ -69,7 +69,7 @@
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
                     Binding="{Binding Birthday}" 
-                    Header="День рождения" 
+                    Header="Дата рождения" 
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
                     Binding="{Binding PhoneNumber}" 

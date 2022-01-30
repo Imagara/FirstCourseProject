@@ -52,10 +52,6 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding Transport.NameOfTransport}" 
-                    Header="Транспортное средство" 
-                    IsReadOnly="True"/>
-                <DataGridTextColumn 
                     Binding="{Binding Surname}" 
                     Header="Фамилия" 
                     IsReadOnly="True"/>
@@ -66,6 +62,10 @@
                 <DataGridTextColumn 
                     Binding="{Binding Patronymic}" 
                     Header="Отчество" 
+                    IsReadOnly="True"/>
+                <DataGridTextColumn 
+                    Binding="{Binding Transport.NameOfTransport}" 
+                    Header="Транспортное средство" 
                     IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>

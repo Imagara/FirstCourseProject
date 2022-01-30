@@ -62,18 +62,13 @@
                             </DataGrid.ItemContainerStyle>
                             <DataGrid.Columns>
                                 <DataGridTextColumn 
-                                    Binding="{Binding Points.IdPoint}" 
-                                    Header="IdPoint"  
-                                    Width="100" 
-                                    IsReadOnly="True"/>
-                                <DataGridTextColumn 
                                     Binding="{Binding Points.Name}" 
-                                    Header="Name" 
+                                    Header="Название" 
                                     Width="100" 
                                     IsReadOnly="True"/>
                                 <DataGridTextColumn 
                                     Binding="{Binding Points.location}" 
-                                    Header="location" 
+                                    Header="Местонахождение" 
                                     Width="100"
                                     IsReadOnly="True"/>
                             </DataGrid.Columns>
@@ -139,25 +134,24 @@
                             </DataGrid.ItemContainerStyle>
                             <DataGrid.Columns>
                                 <DataGridTextColumn 
-                                    Binding="{Binding Drivers.IdDriver}" 
-                                    Header="Номер"  
-                                    Width="100" 
-                                    IsReadOnly="True"/>
-                                <DataGridTextColumn 
-                                    Binding="{Binding Drivers.IdTransport}" 
-                                    Header="Транспортное средство" 
-                                    IsReadOnly="True"/>
-                                <DataGridTextColumn 
                                     Binding="{Binding Drivers.Surname}" 
-                                    Header="Surname" 
+                                    Header="Фамилия" 
                                     IsReadOnly="True"/>
                                 <DataGridTextColumn 
                                     Binding="{Binding Drivers.Name}" 
-                                    Header="Name" 
+                                    Header="Имя" 
                                     IsReadOnly="True"/>
                                 <DataGridTextColumn 
                                     Binding="{Binding Drivers.Patronymic}" 
-                                    Header="Patronymic"
+                                    Header="Отчество"
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Drivers.Transport.NameOfTransport}" 
+                                    Header="Транспортное средство" 
+                                    IsReadOnly="True"/>
+                                <DataGridTextColumn 
+                                    Binding="{Binding Drivers.Transport.NumberPlate}" 
+                                    Header="Номерной знак" 
                                     IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>

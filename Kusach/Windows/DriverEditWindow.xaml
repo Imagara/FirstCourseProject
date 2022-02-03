@@ -17,7 +17,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
             <Label 
-            Content="Номерной знак" 
+            Content="Номерной знак ТС" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="30" 

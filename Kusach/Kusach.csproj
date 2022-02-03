@@ -138,6 +138,9 @@
     <Compile Include="Windows\AddPointWindow.xaml.cs">
       <DependentUpon>AddPointWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddRouteToDispatcherWindow.xaml.cs">
+      <DependentUpon>AddRouteToDispatcherWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddRouteWindow.xaml.cs">
       <DependentUpon>AddRouteWindow.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddPointWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddRouteToDispatcherWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

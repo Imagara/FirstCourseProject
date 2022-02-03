@@ -35,13 +35,14 @@ namespace UnitTests
         [TestMethod]
         public void LoginTest()
         {
-            string login = "qq";
-            string password = "qq";
+            string login = "kovalev30";
+            string password = "kovalev333";
             Assert.IsTrue(Functions.LoginCheck(login, password));
         }
         [TestMethod]
         public void IsValidLoginAndPassword()
         {
+            Assert.IsTrue(Functions.IsValidLogAndPass("login3", "password33"));
             Assert.IsTrue(Functions.IsValidLogAndPass("qq", "ww"));
             Assert.IsTrue(Functions.IsValidLogAndPass("laq", "wwadsw"));
             Assert.IsFalse(Functions.IsValidLogAndPass("", ""));
@@ -49,9 +50,18 @@ namespace UnitTests
             Assert.IsFalse(Functions.IsValidLogAndPass("SimpleLogin", ""));
         }
         [TestMethod]
+        public void IsValidLoginAndPasswordRegister()
+        {
+            Assert.IsTrue(Functions.IsValidLogAndPassRegister("login3", "password33"));
+            Assert.IsFalse(Functions.IsValidLogAndPassRegister("login3", "login3"));
+            Assert.IsFalse(Functions.IsValidLogAndPassRegister("qq", "ww"));
+            Assert.IsFalse(Functions.IsValidLogAndPassRegister("qqvxfc", "ww"));
+            
+        }
+        [TestMethod]
         public void IsLoginAlreadyTaken()
         {
-            Assert.IsTrue(Functions.IsLoginAlreadyTaken("qq"));
+            Assert.IsTrue(Functions.IsLoginAlreadyTaken("kovalev30"));
             Assert.IsFalse(Functions.IsLoginAlreadyTaken("user23"));
             Assert.IsFalse(Functions.IsLoginAlreadyTaken("F"));
             Assert.IsFalse(Functions.IsLoginAlreadyTaken(""));
@@ -67,7 +77,7 @@ namespace UnitTests
         public void GetNumberPlateUsingId()
         {
             int transportId = 1;
-            string expected = "AA333AA78";
+            string expected = "а333аа78";
             Assert.AreEqual(Functions.GetNumberPlate(transportId), expected);
         }
         [TestMethod]
@@ -124,7 +134,7 @@ namespace UnitTests
         [TestMethod]
         public void IsPhoneNumberAlreadyTaken()
         {
-            Assert.IsTrue(Functions.IsPhoneNumberAlreadyTaken("7776006060"));
+            Assert.IsTrue(Functions.IsPhoneNumberAlreadyTaken("9996963350"));
             Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006061"));
             Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006062"));
             Assert.IsFalse(Functions.IsPhoneNumberAlreadyTaken("7776006063"));
@@ -134,7 +144,7 @@ namespace UnitTests
         [TestMethod]
         public void IsEmailAlreadyTaken()
         {
-            Assert.IsTrue(Functions.IsEmailAlreadyTaken("filaks@gmail.com"));
+            Assert.IsTrue(Functions.IsEmailAlreadyTaken("rud.kovalev@gmail.com"));
             Assert.IsFalse(Functions.IsEmailAlreadyTaken("filaks@mail.ru"));
             Assert.IsFalse(Functions.IsEmailAlreadyTaken("cute@gmail.com"));
             Assert.IsFalse(Functions.IsEmailAlreadyTaken("user@gmail.com"));

@@ -5,22 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="82fb6c82068d472697811e1a8b69e0b5" Name="Diagram1">
-        <EntityTypeShape EntityType="EDMModel.Dispatcher" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDMModel.Dispatcher" Width="1.5" PointX="7.375" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.Drivers" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.DriversList" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.Points" Width="1.5" PointX="7" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.PointsList" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EDMModel.RouteList" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDMModel.RouteList" Width="1.5" PointX="4.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.Routes" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.sysdiagrams" Width="1.5" PointX="12.625" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EDMModel.Transport" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
-        <AssociationConnector Association="EDMModel.FK__RouteList__IdRou__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK__DriversLi__IdDri__0C85DE4D" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK_Drivers_Transport" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK__DriversLi__IdRou__68487DD7" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK__PointsLis__IdPoi__6477ECF3" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK__PointsLis__IdRou__66603565" ManuallyRouted="false" />
         <AssociationConnector Association="EDMModel.FK__RouteList__IdRou__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="EDMModel.FK_RouteList_Dispatcher" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

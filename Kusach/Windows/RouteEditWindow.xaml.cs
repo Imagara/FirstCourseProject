@@ -18,6 +18,7 @@ namespace Kusach.Windows
             if (profile.Permission != 0)
             {
                 RouteNameBox.IsEnabled = false;
+                SaveButton.Visibility = Visibility.Collapsed;
                 AddButton.Visibility = Visibility.Collapsed;
                 RemoveButton.Visibility = Visibility.Collapsed;
                 AddButtonDrivers.Visibility = Visibility.Collapsed;
@@ -63,10 +64,14 @@ namespace Kusach.Windows
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
             Routes route = cnt.db.Routes.Where(item => item.IdRoute == routeId).FirstOrDefault();
             route.Name = RouteNameBox.Text;
             cnt.db.SaveChanges();
-            this.Close();
         }
 
         private void AddFromListPoint_Click(object sender, RoutedEventArgs e)

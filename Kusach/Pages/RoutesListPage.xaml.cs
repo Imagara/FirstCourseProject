@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,13 +14,13 @@ namespace Kusach.Pages
         public RoutesListPage()
         {
             InitializeComponent();
-            RoutesList.ItemsSource = cnt.db.Routes.ToList();
+            RoutesList.ItemsSource = cnt.db.RouteList.Where(item => item.IdDispatcher == profile.DispatcherId).ToList();
             if (profile.Permission != 0)
                 CreateButton.Visibility = Visibility.Collapsed;
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((Routes)RoutesList.SelectedItem).IdRoute);
+            Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((RouteList)RoutesList.SelectedItem).IdRoute);
                 rew.Show();
         }
 
@@ -37,19 +38,40 @@ namespace Kusach.Pages
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
             if (SearchBox.Text != "" && SearchBox.Text != "Поиск...")
-                RoutesList.ItemsSource = cnt.db.Routes.Where(item => (item.IdRoute + " " + item.Name).Contains(SearchBox.Text)).ToList();
+                RoutesList.ItemsSource = cnt.db.RouteList.Where(item => (item.Routes.IdRoute + " " + item.Routes.Name).Contains(SearchBox.Text) && item.IdDispatcher == profile.DispatcherId).ToList();
             else
-                cnt.db.Routes.ToList();
+                cnt.db.RouteList.Where(item => item.IdDispatcher == profile.DispatcherId).ToList();
         }
         #endregion
         private void AddRouteButton_Click(object sender, RoutedEventArgs e)
         {
-            AddRouteWindow arw = new AddRouteWindow();
-            arw.Show();
+            Windows.AddRouteToDispatcherWindow artdw = new Windows.AddRouteToDispatcherWindow();
+            artdw.ShowDialog();
+            int routeId = artdw.routeId;
+            if (routeId != -1)
+            {
+                try
+                {
+                    RouteList newAddRouteToDispatcher = new RouteList()
+                    {
+                        Id = cnt.db.RouteList.Select(p => p.Id).DefaultIfEmpty(0).Max() + 1,
+                        IdRoute = routeId,
+                        IdDispatcher = profile.DispatcherId
+                    };
+                    cnt.db.RouteList.Add(newAddRouteToDispatcher);
+                    cnt.db.SaveChanges();
+                    MessageBox.Show("Маршрут успешно добавлена");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Ошибка добавления записи" + exc);
+                }
+            }
+
         }
         private void UpdateRoutesButton_Click(object sender, RoutedEventArgs e)
         {
-            RoutesList.ItemsSource = cnt.db.Routes.ToList();
+            RoutesList.ItemsSource = cnt.db.RouteList.Where(item => item.IdDispatcher == profile.DispatcherId).ToList();
         }
     }
 }

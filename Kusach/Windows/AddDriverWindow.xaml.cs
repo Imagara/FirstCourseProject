@@ -23,8 +23,10 @@ namespace Kusach
 
         private void AddDriverButton_Click(object sender, RoutedEventArgs e)
         {
-            if (IdTransportBox.Text == "" || NameBox.Text == "" || SurnameBox.Text == "" || PatronymicBox.Text == "")
+            if (NumberPlateBox.Text == "" || NameBox.Text == "" || SurnameBox.Text == "" || PatronymicBox.Text == "")
                 MessageBox.Show("Поля не могут быть пустыми.");
+           // if(cnt.db.Transport.Select(item => item.NumberPlate).Contains(NumberPlateBox.Text))
+           //     MessageBox.Show("Неверно введен номерной знак");
             else
             {
                 try
@@ -33,7 +35,7 @@ namespace Kusach
                     Drivers newDriver = new Drivers()
                     {
                         IdDriver = driverId,
-                        IdTransport = Convert.ToInt32(IdTransportBox.Text),
+                        IdTransport = Convert.ToInt32(cnt.db.Transport.Where(item => item.NumberPlate == NumberPlateBox.Text).Select(item => item.IdTransport).FirstOrDefault()),
                         Name = NameBox.Text,
                         Surname = SurnameBox.Text,
                         Patronymic = PatronymicBox.Text

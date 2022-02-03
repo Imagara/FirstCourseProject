@@ -15,12 +15,13 @@
             <RowDefinition Height="354*"/>
         </Grid.RowDefinitions>
         <Button
-            Content="Сохранить&#xD;&#xA; и выйти" 
+            Content="Выйти" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Margin="10,10,0,0" 
             Width="90" 
-            Height="50" 
+            Height="50"
+            FontSize="16"
             Click="ExitButton_Click"/>
         <TextBox
             Name="RouteNameBox"
@@ -76,6 +77,14 @@
                         <StackPanel 
                             Orientation="Horizontal"
                             Grid.Row="1">
+                            <Button
+                                Name="SaveButton"
+                                Content="Сохранить"
+                                Width="90"
+                                Height="30"
+                                Margin="0,0,10,0"
+                                Click="SaveButton_Click">
+                            </Button>
                             <Button
                                 Content="Обновить"
                                 Width="90"

@@ -31,12 +31,22 @@ namespace Kusach
             {
                 try
                 {
+                    int newRouteId = cnt.db.Routes.Select(p => p.IdRoute).DefaultIfEmpty(0).Max() + 1;
                     Routes newRoute = new Routes()
                     {
-                        IdRoute = cnt.db.Routes.Select(p => p.IdRoute).DefaultIfEmpty(0).Max() + 1,
+                        IdRoute = newRouteId,
                         Name = RouteNameBox.Text
                     };
                     cnt.db.Routes.Add(newRoute);
+                    cnt.db.SaveChanges();
+
+                    RouteList newRouteList = new RouteList()
+                    {
+                        Id = cnt.db.RouteList.Select(p => p.Id).DefaultIfEmpty(0).Max() + 1,
+                        IdRoute = newRouteId,
+                        IdDispatcher = profile.DispatcherId
+                    };
+                    cnt.db.RouteList.Add(newRouteList);
                     cnt.db.SaveChanges();
                     this.Close();
                 }

@@ -28,7 +28,7 @@
             <Button
                 Name="CreateButton"
                 Width="120"
-                Content="Создать"
+                Content="Добавить"
                 Click="AddRouteButton_Click"/>
             <Button
                 Width="120"
@@ -52,12 +52,12 @@
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn 
-                    Binding="{Binding IdRoute}" 
+                    Binding="{Binding Routes.IdRoute}" 
                     Header="Номер"  
                     Width="70"
                     IsReadOnly="True"/>
                 <DataGridTextColumn 
-                    Binding="{Binding Name}" 
+                    Binding="{Binding Routes.Name}" 
                     Header="Название"
                     IsReadOnly="True"/>
             </DataGrid.Columns>

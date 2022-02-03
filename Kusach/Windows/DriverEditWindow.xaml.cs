@@ -13,7 +13,7 @@ namespace Kusach.Windows
         {
             InitializeComponent();
             driverId = id;
-            IdTransportBox.Text = cnt.db.Drivers.Where(item => item.IdDriver == driverId).Select(item => item.IdTransport).FirstOrDefault().ToString();
+            NumberPlate.Text = cnt.db.Drivers.Where(item => item.IdDriver == driverId).Select(item => item.Transport.NumberPlate).FirstOrDefault().ToString();
             SurnameBox.Text = cnt.db.Drivers.Where(item => item.IdDriver == driverId).Select(item => item.Surname).FirstOrDefault();
             NameBox.Text = cnt.db.Drivers.Where(item => item.IdDriver == driverId).Select(item => item.Name).FirstOrDefault();
             PatronymicBox.Text = cnt.db.Drivers.Where(item => item.IdDriver == driverId).Select(item => item.Patronymic).FirstOrDefault();
@@ -26,7 +26,7 @@ namespace Kusach.Windows
         {
             Drivers driver = cnt.db.Drivers.Where(item => item.IdDriver == driverId).FirstOrDefault();
             driver.Name = NameBox.Text;
-            driver.IdTransport = Convert.ToInt32(IdTransportBox.Text);
+            driver.IdTransport = Convert.ToInt32(cnt.db.Transport.Where(item => item.NumberPlate == NumberPlate.Text).Select(item => item.IdTransport).FirstOrDefault());
             driver.Surname = SurnameBox.Text;
             driver.Name = NameBox.Text;
             driver.Patronymic = PatronymicBox.Text;

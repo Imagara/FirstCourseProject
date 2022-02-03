@@ -39,10 +39,20 @@ namespace Kusach
         // Валидация логина и пароля
         public static bool IsValidLogAndPass(string login, string password)
         {
-            if (login != "" && password != "")
-                return true;
-            else
+            if (login == "" || password == "")
                 return false;
+            else
+                return true;
+        }
+        // Валидация логина и пароля
+        public static bool IsValidLogAndPassRegister(string login, string password)
+        {
+            if (login.Length < 5 || password.Length < 5)
+                return false;
+            if (login == password)
+                return false;
+            else
+                return true;
         }
         // Получение названия маршрута по его id
         public static string GetRouteName(int routeId)

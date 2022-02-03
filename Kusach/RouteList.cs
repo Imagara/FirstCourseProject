@@ -18,7 +18,7 @@ namespace Kusach
         public int IdRoute { get; set; }
         public int IdDispatcher { get; set; }
     
-        public virtual Dispatcher Dispatcher { get; set; }
         public virtual Routes Routes { get; set; }
+        public virtual Dispatcher Dispatcher { get; set; }
     }
 }

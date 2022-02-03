@@ -18,8 +18,10 @@ namespace Kusach
         {
             try
             {
-                if (logbox.Text == "" || passbox.Text == "")
+                if (!Functions.IsValidLogAndPass(logbox.Text, passbox.Text))
                     MessageBox.Show("Поля не могут быть пустыми.");
+                if (!Functions.IsValidLogAndPassRegister(logbox.Text, passbox.Text))
+                    MessageBox.Show("Поля «Логин» и «Пароль» должны содержать не менее 5 символов. Поля «Логин» и «Пароль» не должны быть равны");
                 else if (Functions.IsLoginAlreadyTaken(logbox.Text))
                     MessageBox.Show("Данный логин уже занят");
                 else if (!Functions.IsValidPhoneNumber(PhoneBox.Text))

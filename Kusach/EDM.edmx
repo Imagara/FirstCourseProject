@@ -148,18 +148,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RouteList__IdRou__6383C8BA">
-          <End Role="Dispatcher" Type="Self.Dispatcher" Multiplicity="1" />
-          <End Role="RouteList" Type="Self.RouteList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dispatcher">
-              <PropertyRef Name="IdDispatcher" />
-            </Principal>
-            <Dependent Role="RouteList">
-              <PropertyRef Name="IdRoute" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Drivers_Transport">
           <End Role="Transport" Type="Self.Transport" Multiplicity="1" />
           <End Role="Drivers" Type="Self.Drivers" Multiplicity="*" />
@@ -169,6 +157,18 @@
             </Principal>
             <Dependent Role="Drivers">
               <PropertyRef Name="IdTransport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteList_Dispatcher">
+          <End Role="Dispatcher" Type="Self.Dispatcher" Multiplicity="1" />
+          <End Role="RouteList" Type="Self.RouteList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatcher">
+              <PropertyRef Name="IdDispatcher" />
+            </Principal>
+            <Dependent Role="RouteList">
+              <PropertyRef Name="IdDispatcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -202,13 +202,13 @@
             <End Role="Routes" EntitySet="Routes" />
             <End Role="RouteList" EntitySet="RouteList" />
           </AssociationSet>
-          <AssociationSet Name="FK__RouteList__IdRou__6383C8BA" Association="Self.FK__RouteList__IdRou__6383C8BA">
-            <End Role="Dispatcher" EntitySet="Dispatcher" />
-            <End Role="RouteList" EntitySet="RouteList" />
-          </AssociationSet>
           <AssociationSet Name="FK_Drivers_Transport" Association="Self.FK_Drivers_Transport">
             <End Role="Transport" EntitySet="Transport" />
             <End Role="Drivers" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteList_Dispatcher" Association="Self.FK_RouteList_Dispatcher">
+            <End Role="Dispatcher" EntitySet="Dispatcher" />
+            <End Role="RouteList" EntitySet="RouteList" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -229,8 +229,8 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Permission" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="RouteList" Relationship="Self.FK__RouteList__IdRou__6383C8BA" FromRole="Dispatcher" ToRole="RouteList" />
           <Property Name="ProfileImgSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RouteList" Relationship="EDMModel.FK_RouteList_Dispatcher" FromRole="Dispatcher" ToRole="RouteList" />
         </EntityType>
         <EntityType Name="Drivers">
           <Key>
@@ -280,8 +280,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="IdRoute" Type="Int32" Nullable="false" />
           <Property Name="IdDispatcher" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dispatcher" Relationship="Self.FK__RouteList__IdRou__6383C8BA" FromRole="RouteList" ToRole="Dispatcher" />
           <NavigationProperty Name="Routes" Relationship="Self.FK__RouteList__IdRou__628FA481" FromRole="RouteList" ToRole="Routes" />
+          <NavigationProperty Name="Dispatcher" Relationship="EDMModel.FK_RouteList_Dispatcher" FromRole="RouteList" ToRole="Dispatcher" />
         </EntityType>
         <EntityType Name="Routes">
           <Key>
@@ -312,18 +312,6 @@
           <Property Name="NumberPlate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Drivers" Relationship="Self.FK_Drivers_Transport" FromRole="Transport" ToRole="Drivers" />
         </EntityType>
-        <Association Name="FK__RouteList__IdRou__6383C8BA">
-          <End Role="Dispatcher" Type="Self.Dispatcher" Multiplicity="1" />
-          <End Role="RouteList" Type="Self.RouteList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dispatcher">
-              <PropertyRef Name="IdDispatcher" />
-            </Principal>
-            <Dependent Role="RouteList">
-              <PropertyRef Name="IdRoute" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DriversLi__IdDri__0C85DE4D">
           <End Role="Drivers" Type="Self.Drivers" Multiplicity="1" />
           <End Role="DriversList" Type="Self.DriversList" Multiplicity="*" />
@@ -406,10 +394,6 @@
           <EntitySet Name="Routes" EntityType="Self.Routes" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Transport" EntityType="Self.Transport" />
-          <AssociationSet Name="FK__RouteList__IdRou__6383C8BA" Association="Self.FK__RouteList__IdRou__6383C8BA">
-            <End Role="Dispatcher" EntitySet="Dispatcher" />
-            <End Role="RouteList" EntitySet="RouteList" />
-          </AssociationSet>
           <AssociationSet Name="FK__DriversLi__IdDri__0C85DE4D" Association="Self.FK__DriversLi__IdDri__0C85DE4D">
             <End Role="Drivers" EntitySet="Drivers" />
             <End Role="DriversList" EntitySet="DriversList" />
@@ -434,7 +418,23 @@
             <End Role="Routes" EntitySet="Routes" />
             <End Role="RouteList" EntitySet="RouteList" />
           </AssociationSet>
+          <AssociationSet Name="FK_RouteList_Dispatcher" Association="EDMModel.FK_RouteList_Dispatcher">
+            <End Role="Dispatcher" EntitySet="Dispatcher" />
+            <End Role="RouteList" EntitySet="RouteList" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_RouteList_Dispatcher">
+          <End Type="EDMModel.Dispatcher" Role="Dispatcher" Multiplicity="1" />
+          <End Type="EDMModel.RouteList" Role="RouteList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatcher">
+              <PropertyRef Name="IdDispatcher" />
+            </Principal>
+            <Dependent Role="RouteList">
+              <PropertyRef Name="IdDispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

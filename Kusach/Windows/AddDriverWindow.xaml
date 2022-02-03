@@ -17,13 +17,13 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
             <Label 
-            Content="IdTransport" 
+            Content="Номерной знак" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="30" 
             Width="190"/>
             <TextBox 
-            x:Name="IdTransportBox"
+            x:Name="NumberPlateBox"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="30" 

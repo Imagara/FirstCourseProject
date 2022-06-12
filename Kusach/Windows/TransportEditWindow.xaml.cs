@@ -3,18 +3,15 @@ using System.Windows;
 
 namespace Kusach.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для TransportEditWindow.xaml
-    /// </summary>
     public partial class TransportEditWindow : Window
     {
-        int transportId;
+        Transport transport;
         public TransportEditWindow(int id)
         {
             InitializeComponent();
-            transportId = id;
-            NameOfTransportBox.Text = Functions.GetNameOfTransport(transportId);
-            NumberPlateBox.Text = Functions.GetNumberPlate(transportId);
+            transport = cnt.db.Transport.Where(item => item.IdTransport == id).FirstOrDefault();
+            NameOfTransportBox.Text = transport.NameOfTransport;
+            NumberPlateBox.Text = transport.NumberPlate;
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -22,7 +19,6 @@ namespace Kusach.Windows
         }
         private void SaveTransportButton_Click(object sender, RoutedEventArgs e)
         {
-            Transport transport = cnt.db.Transport.Where(item => item.IdTransport == transportId).FirstOrDefault();
             transport.NameOfTransport = NameOfTransportBox.Text;
             transport.NumberPlate = NumberPlateBox.Text;
             cnt.db.SaveChanges();

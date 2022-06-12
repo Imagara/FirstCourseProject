@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для AddTransportWindow.xaml
-    /// </summary>
     public partial class AddTransportWindow : Window
     {
         public AddTransportWindow()

@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для AddRouteWindow.xaml
-    /// </summary>
     public partial class AddRouteWindow : Window
     {
         public AddRouteWindow()

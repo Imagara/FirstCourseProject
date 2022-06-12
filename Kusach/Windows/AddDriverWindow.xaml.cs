@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для AddDriverWindow.xaml
-    /// </summary>
     public partial class AddDriverWindow : Window
     {
         int routeId,driverId;

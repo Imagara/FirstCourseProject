@@ -4,9 +4,6 @@ using System.Windows.Input;
 
 namespace Kusach.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для RouteEditWindow.xaml
-    /// </summary>
     public partial class RouteEditWindow : Window
     {
         int routeId;

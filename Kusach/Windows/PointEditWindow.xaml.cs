@@ -3,18 +3,15 @@ using System.Windows;
 
 namespace Kusach.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для PointEditWindow.xaml
-    /// </summary>
     public partial class PointEditWindow : Window
     {
-        int pointId;
+        Points point;
         public PointEditWindow(int id)
         {
             InitializeComponent();
-            pointId = id;
-            NameBox.Text = Functions.GetNameOfPoint(pointId);
-            LocationBox.Text = Functions.GetLocationOfPoint(pointId);
+            point = cnt.db.Points.Where(item => item.IdPoint == id).FirstOrDefault();
+            NameBox.Text = point.Name;
+            LocationBox.Text = point.location;
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -22,7 +19,6 @@ namespace Kusach.Windows
         }
         private void SavePointButton_Click(object sender, RoutedEventArgs e)
         {
-            Points point = cnt.db.Points.Where(item => item.IdPoint == pointId).FirstOrDefault();
             point.Name = NameBox.Text;
             point.location = LocationBox.Text;
             cnt.db.SaveChanges();

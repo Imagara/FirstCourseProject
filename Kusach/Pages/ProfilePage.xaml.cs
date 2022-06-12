@@ -7,22 +7,19 @@ using System.Windows.Media.Imaging;
 
 namespace Kusach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для ProfilePage.xaml
-    /// </summary>
     public partial class ProfilePage : Page
     {
+        Dispatcher dispatcher;
         public ProfilePage()
         {
             InitializeComponent();
-            if(cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.ProfileImgSource).FirstOrDefault() != null)
-            ProfileImg.Source = new BitmapImage(new Uri(cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.ProfileImgSource).FirstOrDefault()));
-            NameSurnameBox.Content = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.Name + " " + item.Surname).FirstOrDefault();
-            DateTime Birthday = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.Birthday).FirstOrDefault();
-            BirthdayBox.Content = Birthday.ToLongDateString();
-            string phone = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.PhoneNumber).FirstOrDefault();
-            PhoneNumBox.Content = "+7(" + phone.Substring(0, 3) + ")" + phone.Substring(3, 3) + "-" + phone.Substring(6, 2) + "-" + phone.Substring(8, 2);
-            EmailBox.Content = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.Email).FirstOrDefault();
+            dispatcher = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).FirstOrDefault();
+            if (cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).Select(item => item.ProfileImgSource).FirstOrDefault() != null)
+                ProfileImg.Source = new BitmapImage(new Uri(dispatcher.ProfileImgSource));
+            NameSurnameBox.Content = dispatcher.Name + " " + dispatcher.Surname;
+            BirthdayBox.Content = dispatcher.Birthday.ToLongDateString();
+            PhoneNumBox.Content = "+7(" + dispatcher.PhoneNumber.Substring(0, 3) + ")" + dispatcher.PhoneNumber.Substring(3, 3) + "-" + dispatcher.PhoneNumber.Substring(6, 2) + "-" + dispatcher.PhoneNumber.Substring(8, 2);
+            EmailBox.Content = dispatcher.Email;
         }
         private void EditImageButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +31,6 @@ namespace Kusach.Pages
             {
                 string filename = ofd.FileName;
                 ProfileImg.Source = new BitmapImage(new Uri(filename));
-                Dispatcher dispatcher = cnt.db.Dispatcher.Where(item => item.IdDispatcher == profile.DispatcherId).FirstOrDefault();
                 dispatcher.ProfileImgSource = filename;
                 cnt.db.SaveChanges();
             }

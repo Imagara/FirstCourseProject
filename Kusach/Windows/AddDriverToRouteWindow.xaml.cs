@@ -4,9 +4,6 @@ using System.Windows.Input;
 
 namespace Kusach.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для AddDriverToRouteWindow.xaml
-    /// </summary>
     public partial class AddDriverToRouteWindow : Window
     {
         public int driverId = -1; int routeId;
@@ -28,8 +25,7 @@ namespace Kusach.Windows
         }
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            AddDriverWindow adw = new AddDriverWindow(routeId);
-            adw.ShowDialog();
+            new AddDriverWindow(routeId).ShowDialog();
             this.Close();
         }
     }

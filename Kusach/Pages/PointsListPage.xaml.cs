@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kusach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для PointsListPage.xaml
-    /// </summary>
     public partial class PointsListPage : Page
     {
         public PointsListPage()
@@ -30,10 +17,7 @@ namespace Kusach.Pages
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (profile.Permission == 0)
-            {
-                Windows.PointEditWindow dew = new Windows.PointEditWindow(((Points)PointsList.SelectedItem).IdPoint);
-                dew.Show();
-            }
+                new Windows.PointEditWindow(((Points)PointsList.SelectedItem).IdPoint).Show();
         }
 
         #region Поиск

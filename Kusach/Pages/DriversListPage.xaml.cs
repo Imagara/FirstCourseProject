@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace Kusach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для DriversListPage.xaml
-    /// </summary>
     public partial class DriversListPage : Page
     {
         public DriversListPage()
@@ -20,10 +17,7 @@ namespace Kusach.Pages
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (profile.Permission == 0)
-            {
-                Windows.DriverEditWindow dew = new Windows.DriverEditWindow(((Drivers)DriversList.SelectedItem).IdDriver);
-                dew.Show();
-            }
+                new Windows.DriverEditWindow(((Drivers)DriversList.SelectedItem).IdDriver).Show();
         }
 
         #region Поиск
@@ -47,8 +41,7 @@ namespace Kusach.Pages
         #endregion
         private void AddDriverButton_Click(object sender, RoutedEventArgs e)
         {
-            AddDriverWindow adw = new AddDriverWindow();
-            adw.Show();
+            new AddDriverWindow().Show();
         }
 
         private void UpdateDriversButton_Click(object sender, RoutedEventArgs e)

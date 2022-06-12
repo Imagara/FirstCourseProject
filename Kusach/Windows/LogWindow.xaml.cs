@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для LogWindow.xaml
-    /// </summary>
     public partial class LogWindow : Window
     {
         public LogWindow()
@@ -26,16 +23,14 @@ namespace Kusach
             {
                 profile.DispatcherId = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).IdDispatcher;
                 profile.Permission = cnt.db.Dispatcher.First(item => item.Login == logbox.Text).Permission;
-                MainWindow mw = new MainWindow();
-                mw.Show();
+                new MainWindow().Show();
                 this.Close();
             }
                 
         }
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {
-            RegWindow rw = new RegWindow();
-            rw.Show();
+            new RegWindow().Show();
             this.Close();
         }
     }

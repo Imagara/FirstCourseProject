@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace Kusach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для TransportListPage.xaml
-    /// </summary>
     public partial class TransportListPage : Page
     {
         public TransportListPage()
@@ -20,10 +17,7 @@ namespace Kusach.Pages
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (profile.Permission == 0)
-            {
-                Windows.TransportEditWindow tew = new Windows.TransportEditWindow(((Transport)TransportList.SelectedItem).IdTransport);
-                tew.Show();
-            }
+                new Windows.TransportEditWindow(((Transport)TransportList.SelectedItem).IdTransport).Show();
         }
 
             #region Поиск
@@ -47,8 +41,7 @@ namespace Kusach.Pages
         #endregion
         private void AddTransportButton_Click(object sender, RoutedEventArgs e)
         {
-            AddTransportWindow atw = new AddTransportWindow();
-            atw.Show();
+            new AddTransportWindow().Show();
         }
         private void UpdateTransportButton_Click(object sender, RoutedEventArgs e)
         {

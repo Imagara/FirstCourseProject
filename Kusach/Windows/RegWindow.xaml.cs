@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для RegWindow.xaml
-    /// </summary>
     public partial class RegWindow : Window
     {
         public RegWindow()

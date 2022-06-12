@@ -6,9 +6,6 @@ using System.Windows.Input;
 
 namespace Kusach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для RoutesListPage.xaml
-    /// </summary>
     public partial class RoutesListPage : Page
     {
         public RoutesListPage()
@@ -20,8 +17,7 @@ namespace Kusach.Pages
         }
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Windows.RouteEditWindow rew = new Windows.RouteEditWindow(((RouteList)RoutesList.SelectedItem).IdRoute);
-                rew.Show();
+            new Windows.RouteEditWindow(((RouteList)RoutesList.SelectedItem).IdRoute).Show();
         }
 
         #region Поиск

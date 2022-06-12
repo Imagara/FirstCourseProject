@@ -2,23 +2,17 @@
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
             if (profile.Permission != 0)
-            {
                 DispatchersButton.Visibility = Visibility.Collapsed;
-            }
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            LogWindow lw = new LogWindow();
-            lw.Show();
+            new LogWindow().Show();
             this.Close();
         }
         private void OnLoad(object sender, RoutedEventArgs e)

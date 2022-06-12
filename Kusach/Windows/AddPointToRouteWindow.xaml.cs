@@ -4,9 +4,6 @@ using System.Windows.Input;
 
 namespace Kusach.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для AddPointToRouteWindow.xaml
-    /// </summary>
     public partial class AddPointToRouteWindow : Window
     {
         int routeId;
@@ -24,8 +21,7 @@ namespace Kusach.Windows
         }
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            AddPointWindow apw = new AddPointWindow(routeId);
-            apw.ShowDialog();
+            new AddPointWindow(routeId).ShowDialog();
             this.Close();
         }
 

@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace Kusach
 {
-    /// <summary>
-    /// Логика взаимодействия для AddPointWindow.xaml
-    /// </summary>
     public partial class AddPointWindow : Window
     {
         int routeId, pointId;
